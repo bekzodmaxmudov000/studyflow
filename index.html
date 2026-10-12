@@ -137,6 +137,20 @@ textarea{width:100%;min-height:170px;resize:vertical;background:var(--bg);border
 .rev{border-left:4px solid var(--bad);padding:10px 14px;margin-bottom:12px;background:var(--bg);border-radius:10px;display:grid;gap:4px}
 .spin{width:34px;height:34px;border:4px solid var(--line);border-top-color:var(--acc);border-radius:50%;animation:sp 1s linear infinite;margin:0 auto 14px}
 @keyframes sp{to{transform:rotate(360deg)}}
+.chat{display:flex;flex-direction:column;height:calc(100vh - 330px);height:calc(100dvh - 330px);min-height:380px;overflow:hidden;padding:0}
+.chl{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.bb{max-width:min(88%,660px);padding:10px 14px;border-radius:16px;overflow-wrap:anywhere;line-height:1.5}
+.bb.u{align-self:flex-end;background:var(--acc);color:var(--acc-ink);border-bottom-right-radius:5px;white-space:pre-wrap}
+.bb.a{align-self:flex-start;background:var(--bg);border:1px solid var(--line);border-bottom-left-radius:5px}
+.bb p{margin:0 0 6px}.bb p:last-child{margin:0}
+.bb ul,.bb ol{margin:4px 0 6px;padding-left:22px}
+.bb code{background:var(--line);padding:1px 5px;border-radius:5px;font-size:.92em}
+.dots i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--mute);margin:0 2px;animation:bl 1.2s infinite}
+.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+@keyframes bl{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.chi{display:flex;gap:10px;padding:12px;border-top:1px solid var(--line);align-items:flex-end}
+.chi textarea{flex:1;min-height:46px;max-height:140px;resize:none;padding:11px 12px}
+@media (max-width:800px){.chat{height:calc(100vh - 400px);height:calc(100dvh - 400px)}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -150,7 +164,7 @@ textarea{width:100%;min-height:170px;resize:vertical;background:var(--bg);border
 <div id="qa" hidden role="dialog" aria-modal="true" aria-label="Tezkor amallar"><div class="qbox"><input id="qq" role="combobox" aria-expanded="true" aria-controls="ql" placeholder="Qayerga o‘tamiz yoki nima qilamiz?" autocomplete="off" aria-label="Qidirish"><div id="ql" role="listbox"></div><div class="qh">↑ ↓ tanlash · Enter bajarish · Esc yopish</div></div></div>
 <script>
 var K='studyflow_v1',S=blank();
-function blank(){return{subjects:[],tasks:[],exams:[],sessions:[],focus:25,daily:120,sched:[]}}
+function blank(){return{subjects:[],tasks:[],exams:[],sessions:[],focus:25,daily:120,sched:[],chat:[]}}
 try{var r=localStorage.getItem(K);if(r)S=Object.assign(blank(),JSON.parse(r))}catch(e){}
 function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
 var $=function(s){return document.querySelector(s)};
@@ -158,7 +172,7 @@ var uid=function(){return Math.random().toString(36).slice(2,9)};
 var esc=function(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
 var COL=['#3552e0','#e0457b','#f08c00','#12a37a','#0ba5c7','#e03131','#845ef7','#74b816'];
 var DAYS=['Yak','Dush','Sesh','Chor','Pay','Jum','Shan'];
-var NAV=[['home','🏠','Bosh sahifa'],['plan','🧠','Aqlli reja'],['sched','🗓️','Dars jadvali'],['quiz','🧪','AI Test'],['tasks','✅','Vazifalar'],['timer','⏱️','Taymer'],['subjects','📚','Fanlar'],['exams','🎯','Imtihonlar']];
+var NAV=[['home','🏠','Bosh sahifa'],['plan','🧠','Aqlli reja'],['sched','🗓️','Dars jadvali'],['quiz','🧪','AI Test'],['chat','💬','AI Yordamchi'],['tasks','✅','Vazifalar'],['timer','⏱️','Taymer'],['subjects','📚','Fanlar'],['exams','🎯','Imtihonlar'],['settings','⚙️','Sozlamalar']];
 var tab='home',filter='all',pick=COL[0],schDay=new Date().getDay(),viewDay=new Date().getDay();
 function ymd(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
 function diff(s){var a=new Date(s+'T00:00:00'),b=new Date(ymd(new Date())+'T00:00:00');return Math.round((a-b)/864e5)}
@@ -191,6 +205,28 @@ function classesBox(){if(!S.sched.length)return'';var l=dayClasses(new Date().ge
 function planBox(){var p=plan();if(!p.n)return'';var x=p.days[0];
 return'<div class="box"><h2>Bugungi reja</h2>'+(x.list.length?x.list.map(function(y){return'<div class="item"><div class="t"><div>'+esc(y.it.title)+'</div><small>'+fmt(y.give)+'</small></div>'+subTag(y.it.sid)+'</div>'}).join(''):'<div class="empty" style="padding:14px">Bugun uchun ish yo‘q yoki kunlik normangiz bajarilgan.</div>')+(p.short.length?'<p class="late" style="margin:10px 0 0">'+p.short.length+' ta ishga muddatgacha vaqt yetmayapti.</p>':'')+'<div class="row" style="margin-top:12px"><button class="btn ghost sm" data-a="goPlan">To‘liq reja</button></div></div>'}
 var V={
+chat:function(){var on=S.chatCtx!==false;
+return'<h1>AI yordamchi</h1><p class="sub">O‘qish bo‘yicha savol bering: mavzuni tushuntirish, reja tuzish, imtihonga tayyorgarlik.</p>'+
+'<div class="chips"><button class="chip '+(on?'on':'')+'" data-a="chCtx" aria-pressed="'+on+'">'+(on?'✓ ':'')+'Vazifa, imtihon va jadvalimni hisobga ol</button><button class="chip" data-a="chClear">Suhbatni tozalash</button></div>'+
+'<div class="box chat"><div class="chl" id="ch-list">'+chList()+'</div><div class="chi"><textarea id="ch-in" rows="1" placeholder="Savolingizni yozing…" aria-label="Xabar"></textarea><button class="btn" id="ch-send" data-a="chSend">'+(C.busy?'To‘xtatish':'Yuborish')+'</button></div></div>'+
+'<small style="color:var(--mute)">AI xato qilishi mumkin, muhim narsalarni tekshirib ko‘ring. Xabarlar Google Gemini’ga yuboriladi.</small>'},
+settings:function(){
+var th=S.theme||'auto';
+var chips=function(list,cur,act){return'<div class="chips">'+list.map(function(x){return'<button class="chip '+(cur===x[0]?'on':'')+'" data-a="'+act+'" data-id="'+x[0]+'" aria-pressed="'+(cur===x[0])+'">'+x[1]+'</button>'}).join('')+'</div>'};
+var sel=function(id,list,cur){return'<select id="'+id+'" data-change="setQ">'+list.map(function(v){return'<option'+(String(cur)===String(v)?' selected':'')+'>'+v+'</option>'}).join('')+'</select>'};
+return'<h1>Sozlamalar</h1><p class="sub">Saytni o‘zingizga moslang. Hamma o‘zgarish shu brauzerda saqlanadi.</p>'+
+'<div class="box"><h2>Profil</h2><div class="row"><label class="f">Ismingiz<input id="st-name" value="'+esc(S.name||'')+'" placeholder="Masalan: Ali" maxlength="30" data-change="setName"></label></div><small style="color:var(--mute)">Bosh sahifada salomlashish uchun ishlatiladi.</small></div>'+
+'<div class="box"><h2>Ko‘rinish</h2><div style="margin-bottom:6px;color:var(--mute);font-size:14px">Mavzu</div>'+chips([['auto','Avto'],['light','Yorug‘'],['dark','Qorong‘i']],th,'setTheme')+
+'<div style="margin:12px 0 6px;color:var(--mute);font-size:14px">Yon menyu (kompyuterda)</div>'+chips([['open','Ochiq'],['min','Yig‘ilgan']],S.navMin?'min':'open','setNav')+'</div>'+
+'<div class="box"><h2>O‘qish</h2><div class="row"><label class="f">Kuniga o‘qish vaqti (soat)<input id="st-daily" type="number" min="0.5" max="16" step="0.5" value="'+S.daily/60+'" data-change="setDailyS"></label>'+
+'<label class="f">Taymerning standart vaqti (daqiqa)<input id="st-focus" type="number" min="1" max="720" value="'+Math.round(T.total/60)+'" data-change="setFocus"></label></div>'+
+'<div style="margin-top:14px"><button class="chip" data-a="toggleSound">'+(S.sound!==false?'🔔 Taymer tugaganda ovoz chiqadi':'🔕 Taymer ovozi o‘chirilgan')+'</button></div></div>'+
+'<div class="box"><h2>AI Test</h2><div class="tag" style="display:inline-block;margin-bottom:12px">'+qzBadge()+'</div><div class="row"><label class="f">Savollar soni'+sel('st-qn',[5,8,10],Q.count)+'</label><label class="f">Qiyinlik'+sel('st-qd',['Oson','O‘rta','Qiyin'],Q.diff)+'</label></div></div>'+
+'<div class="box"><h2>Ma’lumotlar</h2><p style="margin:0 0 12px;color:var(--mute)">Hozir: '+S.subjects.length+' fan · '+S.tasks.length+' vazifa · '+S.sched.length+' dars · '+S.exams.length+' imtihon · '+S.sessions.length+' seans</p>'+
+'<div class="row"><button class="btn" data-a="exportData">Zaxira nusxani yuklab olish</button><button class="btn ghost" data-a="pickFile">Zaxiradan tiklash</button><input type="file" id="st-file" accept=".json,application/json" hidden data-change="importData">'+
+'<button class="btn ghost" data-a="resetAll" style="color:var(--bad);border-color:var(--bad)">'+(resetArm?'Aniq o‘chiraymi? Yana bosing':'Hamma ma’lumotni o‘chirish')+'</button></div>'+
+'<small style="display:block;margin-top:12px;color:var(--mute)">Ma’lumotlar faqat shu brauzerda turadi. Qurilmani almashtirsangiz, zaxira nusxadan tiklang.</small></div>'+
+'<div class="box"><h2>Tezkor tugmalar</h2><p style="margin:0;color:var(--mute)"><kbd style="border:1px solid var(--line);border-radius:6px;padding:2px 7px">'+KEY+'</kbd> bosib, istalgan bo‘limga yoki amalga bir zumda o‘tishingiz mumkin.</p></div>'},
 quiz:function(){return Q.stage==='loading'?qzLoading():Q.stage==='taking'?qzTake():Q.stage==='result'?qzResult():qzInput()},
 plan:function(){
 var p=plan();
@@ -227,7 +263,7 @@ for(var i=6;i>=0;i--){var d=new Date();d.setDate(d.getDate()-i);var k=ymd(d),m=m
 vals.forEach(function(v){bars+='<div class="'+(v[1]?'':'z')+'"><i style="height:'+Math.max(4,v[1]/mx*100)+'%" title="'+fmt(v[1])+'"></i>'+v[0]+'</div>'});
 var ex=S.exams.filter(function(e){return diff(e.date)>=0}).sort(function(a,b){return a.date<b.date?-1:1})[0];
 var next=open.slice().sort(function(a,b){return(a.due||'9')<(b.due||'9')?-1:1}).slice(0,5);
-return'<h1>'+g+'!</h1><p class="sub">Bugungi o‘qish rejangiz shu yerda.</p>'+
+return'<h1>'+g+(S.name?', '+esc(S.name):'')+'!</h1><p class="sub">Bugungi o‘qish rejangiz shu yerda.</p>'+
 '<div class="stats"><div class="stat"><b>'+dueNow+'</b><small>bugungi va muddati o‘tgan vazifalar</small></div>'+
 '<div class="stat"><b>'+(wk?fmt(wk):'0 daq')+'</b><small>so‘nggi 7 kunda o‘qilgan vaqt</small></div>'+
 '<div class="stat"><b>'+(ex?(diff(ex.date)===0?'Bugun':diff(ex.date)+' kun'):'—')+'</b><small>'+(ex?esc(ex.name)+' imtihonigacha':'imtihon qo‘shilmagan')+'</small></div>'+
@@ -323,6 +359,41 @@ qzRetry:function(){Q.ans=[];Q.cur=0;Q.saved=false;Q.stage='taking';render();wind
 qzRetryWrong:function(){Q.qs=Q.qs.filter(function(q,i){return Q.ans[i]!==q.answer});Q.title=Q.title.replace(/ \(xatolar\)$/,'')+' (xatolar)';Q.ans=[];Q.cur=0;Q.saved=false;Q.stage='taking';render();window.scrollTo(0,0)},
 qzNew:function(){Q.stage='input';Q.msg='';render();window.scrollTo(0,0)},
 qzToTasks:function(){var seen={},c=0;Q.qs.forEach(function(q,i){if(Q.ans[i]===q.answer)return;var t=q.topic||'Umumiy';if(seen[t])return;seen[t]=1;var title='Takrorlash: '+t;if(S.tasks.some(function(x){return x.title===title&&!x.done}))return;S.tasks.push({id:uid(),title:title,sid:'',due:'',pr:3,est:30,done:false});c++});save();toast(c?c+' ta vazifa qo‘shildi':'Bu vazifalar allaqachon bor')},
+setName:function(){S.name=$('#st-name').value.trim().slice(0,30);save();toast('Ism saqlandi')},
+setTheme:function(id){S.theme=id;save();applyTheme();render()},
+cycleTheme:function(){var o=['auto','light','dark'];S.theme=o[(o.indexOf(S.theme||'auto')+1)%3];save();applyTheme();toast('Mavzu: '+{auto:'avto',light:'yorug‘',dark:'qorong‘i'}[S.theme]);if(tab==='settings')render()},
+setNav:function(id){S.navMin=id==='min';save();applyNav();render()},
+setDailyS:function(){var v=parseFloat($('#st-daily').value);if(v>=0.5&&v<=16){S.daily=Math.round(v*60);save();toast('Saqlandi')}else{toast('0.5 dan 16 soatgacha kiriting');render()}},
+setFocus:function(){if(T.run){toast('Avval taymerni to‘xtating');render();return}var v=parseInt($('#st-focus').value);if(v>=1&&v<=720){T.total=T.left=v*60;S.focus=v;save();toast('Saqlandi')}else{toast('1 dan 720 daqiqagacha kiriting');render()}},
+setQ:function(){S.qCount=+$('#st-qn').value;S.qDiff=$('#st-qd').value;Q.count=S.qCount;Q.diff=S.qDiff;save();toast('Saqlandi')},
+exportData:function(){var u=URL.createObjectURL(new Blob([JSON.stringify(S,null,2)],{type:'application/json'}));var a=document.createElement('a');a.href=u;a.download='studyflow-zaxira-'+ymd(new Date())+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},1000);toast('Zaxira nusxa yuklab olindi')},
+pickFile:function(){$('#st-file').click()},
+importData:function(){var f=$('#st-file').files[0];if(!f)return;var rd=new FileReader();
+rd.onload=function(){try{var o=JSON.parse(rd.result);if(!o||typeof o!=='object'||Array.isArray(o)||(!Array.isArray(o.tasks)&&!Array.isArray(o.subjects)))throw 0;
+S=Object.assign(blank(),o);['subjects','tasks','exams','sessions','sched','chat'].forEach(function(k){if(!Array.isArray(S[k]))S[k]=[]});
+save();if(!T.run){T.total=T.left=(S.focus||25)*60}Q.count=S.qCount||5;Q.diff=S.qDiff||'O‘rta';applyTheme();render();toast('Ma’lumotlar tiklandi')}catch(e){toast('Fayl noto‘g‘ri yoki buzilgan')}};rd.readAsText(f)},
+resetAll:function(){if(!resetArm){resetArm=true;render();setTimeout(function(){if(resetArm){resetArm=false;if(tab==='settings')render()}},4000);return}
+resetArm=false;stop();S=blank();save();T.total=T.left=S.focus*60;Q.count=5;Q.diff='O‘rta';Q.stage='input';applyTheme();render();toast('Hamma ma’lumot o‘chirildi')},
+chCtx:function(){S.chatCtx=S.chatCtx===false;save();render()},
+chClear:function(){if(C.busy&&C.ctl)C.ctl.abort();S.chat=[];C.err='';C.busy=false;save();render()},
+chAsk:function(i){$('#ch-in').value=SUG[+i];A.chSend()},
+chSend:async function(){
+if(C.busy){if(C.ctl)C.ctl.abort();return}
+var inp=$('#ch-in'),t=(inp&&inp.value||'').trim();if(!t)return;
+inp.value='';inp.style.height='auto';C.err='';
+S.chat.push({r:'user',t:t.slice(0,4000)});S.chat=S.chat.slice(-40);save();
+C.busy=true;C.ctl=new AbortController();chUpdate();
+try{
+var msgs=S.chat.slice(-16).map(function(m){return{role:m.r,text:m.t}});
+var r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:msgs,context:S.chatCtx===false?'':chContext()}),signal:C.ctl.signal});
+var j=null;try{j=await r.json()}catch(x){}
+if(!r.ok||!j||!j.reply)throw{status:r.status,detail:j&&(j.detail||j.error)};
+S.chat.push({r:'model',t:j.reply});S.chat=S.chat.slice(-40);save()
+}catch(e){
+if(e&&e.name==='AbortError')C.err='To‘xtatildi.';
+else if(e&&e.status===404)C.err='AI chat funksiyasi topilmadi (404): api/chat.js faylini api papkasiga qo‘shib, qayta deploy qiling.';
+else C.err='AI javob bera olmadi'+(e&&e.detail?'. Sabab: '+e.detail:'')+(e&&e.status?' ('+e.status+')':'')}
+C.busy=false;chUpdate()},
 goPlan:function(){tab='plan';render();window.scrollTo(0,0)},
 setDaily:function(){var v=parseFloat($('#daily').value);if(v>=0.5&&v<=16){S.daily=Math.round(v*60);save()}render()},
 startPlan:function(sid){if(!T.run)T.sid=sid;tab='timer';render();window.scrollTo(0,0)},
@@ -344,6 +415,8 @@ function qaItems(){
 var L=[];
 NAV.forEach(function(n){L.push({t:'O‘tish: '+n[2],k:n[0],g:'Bo‘lim',i:n[1],f:qgo(n[0])})});
 L.push({t:S.navMin?'Yon menyuni ochish':'Yon menyuni yig‘ish',k:'menyu sidebar yigish ochish',g:'Amal',i:'☰',f:function(){A.toggleNav()}});
+L.push({t:'AI yordamchiga savol berish',k:'ai chat suhbat savol yordamchi',g:'AI',i:'💬',f:qgo('chat','#ch-in')});
+L.push({t:'Mavzuni almashtirish (avto / yorug‘ / qorong‘i)',k:'mavzu theme dark qorongi yorugh',g:'Sozlama',i:'🎨',f:function(){A.cycleTheme()}});
 L.push({t:'Yangi vazifa qo‘shish',k:'vazifa topshiriq task qoshish',g:'Amal',i:'➕',f:qgo('tasks','#t-title')});
 L.push({t:'Yangi dars qo‘shish',k:'dars jadval qoshish',g:'Amal',i:'➕',f:qgo('sched','#sc-name')});
 L.push({t:'Yangi fan qo‘shish',k:'fan qoshish',g:'Amal',i:'➕',f:qgo('subjects','#s-name')});
@@ -433,6 +506,36 @@ return'<h1>Natija</h1><p class="sub">'+esc(Q.title)+'</p>'+
 (tk.length>1?'<div class="box"><h2>Mavzular bo‘yicha</h2>'+tk.map(function(t){var p=tp[t];return'<div style="margin-bottom:12px"><div class="row" style="justify-content:space-between"><span>'+esc(t)+'</span><small class="'+(p[0]<p[1]?'bad':'ok')+'">'+p[0]+' / '+p[1]+'</small></div><div class="bar"><i style="width:'+(p[0]/p[1]*100)+'%"></i></div></div>'}).join('')+(weak.length?'<p class="sub" style="margin:4px 0 0">Takrorlash kerak: <b>'+weak.map(esc).join(', ')+'</b></p>':'')+'</div>':'')+
 '<div class="box"><h2>Xatolar tahlili</h2>'+(wrong.length?wrong.map(function(i){var q=Q.qs[i],a=Q.ans[i];return'<div class="rev"><div><b>'+(i+1)+'. '+esc(q.q)+'</b></div><div class="bad">Sizning javobingiz: '+(a===undefined?'javob berilmagan':esc(q.options[a]))+'</div><div class="ok">To‘g‘ri javob: '+esc(q.options[q.answer])+'</div>'+(q.explain?'<small>'+esc(q.explain)+'</small>':'')+'</div>'}).join(''):empty('Xato yo‘q!','Hamma savolga to‘g‘ri javob berdingiz.'))+'</div>'+
 '<div class="row">'+(wrong.length?'<button class="btn" data-a="qzRetryWrong">Xatolarni qayta yechish</button>':'')+(weak.length?'<button class="btn ghost" data-a="qzToTasks">Zaif mavzularni vazifaga qo‘shish</button>':'')+'<button class="btn ghost" data-a="qzRetry">Shu testni qayta yechish</button><button class="btn ghost" data-a="qzNew">Yangi test</button></div>'}
+var resetArm=false;
+function applyTheme(){var t=S.theme||'auto',r=document.documentElement;if(t==='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',t)}
+applyTheme();Q.count=S.qCount||5;Q.diff=S.qDiff||'O‘rta';
+var C={busy:false,ctl:null,err:''};
+var SUG=['Bugun nimani o‘qishim kerak?','Imtihonga qanday tayyorlanay?','Mavzuni oddiy tilda tushuntirib ber','Menga haftalik o‘qish rejasi tuzib ber'];
+function chInl(s){return s.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/`([^`]+)`/g,'<code>$1</code>').replace(/(^|[^*])\*([^*\n]+)\*/g,'$1<i>$2</i>')}
+function chMd(t){var out='',list=null,close=function(){if(list){out+='</'+list+'>';list=null}};
+esc(t).split('\n').forEach(function(l){var m=l.match(/^\s*[-*•]\s+(.*)/),n=l.match(/^\s*\d+[.)]\s+(.*)/);
+if(m||n){var tag=m?'ul':'ol';if(list!==tag){close();out+='<'+tag+'>';list=tag}out+='<li>'+chInl((m||n)[1])+'</li>'}
+else{close();var h=l.match(/^#{1,4}\s+(.*)/);if(h)out+='<p><b>'+chInl(h[1])+'</b></p>';else if(l.trim())out+='<p>'+chInl(l)+'</p>'}});
+close();return out}
+function chContext(){var d=new Date(),L=['Bugun: '+ymd(d)+' ('+DN[d.getDay()]+')'];
+var open=S.tasks.filter(function(t){return!t.done}).slice(0,15);
+if(open.length)L.push('Vazifalar: '+open.map(function(t){var s=sub(t.sid);return t.title+(t.due?' (muddat '+t.due+')':'')+(s?' ['+s.name+']':'')}).join('; '));
+var ex=S.exams.filter(function(e){return diff(e.date)>=0}).sort(function(a,b){return a.date<b.date?-1:1}).slice(0,6);
+if(ex.length)L.push('Imtihonlar: '+ex.map(function(e){return e.name+' '+e.date+' ('+diff(e.date)+' kun qoldi)'}).join('; '));
+var tc=dayClasses(d.getDay());
+if(tc.length)L.push('Bugungi darslar: '+tc.map(function(c){return c.start+'-'+c.end+' '+c.name+(c.room?' ('+c.room+')':'')}).join('; '));
+L.push('Kuniga o‘qishga ajratgan vaqti: '+fmt(S.daily));
+L.push('So‘nggi 7 kunda o‘qigan vaqti: '+fmt(mins(function(s){return diff(s.date)>=-6})));
+return L.join('\n').slice(0,3000)}
+function chList(){var h='';
+if(!S.chat.length&&!C.busy)return'<div class="empty" style="margin:auto"><b>Salom! Men StudyFlow AI yordamchisiman 👋</b>Savol bering yoki quyidagilardan birini tanlang.</div><div class="chips" style="justify-content:center">'+SUG.map(function(p,i){return'<button class="chip" data-a="chAsk" data-id="'+i+'">'+p+'</button>'}).join('')+'</div>';
+S.chat.forEach(function(m){h+=m.r==='user'?'<div class="bb u">'+esc(m.t)+'</div>':'<div class="bb a">'+chMd(m.t)+'</div>'});
+if(C.busy)h+='<div class="bb a dots" aria-label="AI yozmoqda"><i></i><i></i><i></i></div>';
+else if(C.err)h+='<div class="warn" style="align-self:stretch;margin:0">'+esc(C.err)+'</div>';
+return h}
+function chUpdate(){var l=$('#ch-list');if(l){l.innerHTML=chList();l.scrollTop=l.scrollHeight}var b=$('#ch-send');if(b)b.textContent=C.busy?'To‘xtatish':'Yuborish'}
+document.addEventListener('keydown',function(e){if(e.target&&e.target.id==='ch-in'&&e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();A.chSend()}});
+document.addEventListener('input',function(e){var t=e.target;if(t&&t.id==='ch-in'){t.style.height='auto';t.style.height=Math.min(140,t.scrollHeight)+'px'}});
 function applyNav(){var m=!!S.navMin;$('.app').classList.toggle('min',m);var b=$('.tgl');if(b){b.setAttribute('aria-expanded',String(!m));b.setAttribute('aria-label',m?'Menyuni ochish':'Menyuni yig‘ish');b.title=m?'Menyuni ochish':'Menyuni yig‘ish'}}
 function render(){
 $('#nav').innerHTML='<div class="top"><div class="logo"><span>Study</span>Flow</div><button class="x tgl" data-a="toggleNav"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h2.5v16H7a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z" fill="currentColor" stroke="none" opacity=".2"/><rect x="3" y="4" width="18" height="16" rx="4"/><path d="M9.5 4v16"/><path class="chev" d="M16 9.5l-2.5 2.5 2.5 2.5"/></svg></button></div><button class="nav qkbtn" data-a="qaOpen" title="Tezkor amallar"><span aria-hidden="true">🔎</span><span class="lb">Tezkor amallar</span><kbd>'+KEY+'</kbd></button>'+NAV.map(function(n){return'<button class="nav '+(tab===n[0]?'on':'')+'" data-tab="'+n[0]+'" title="'+n[2]+'"><span aria-hidden="true">'+n[1]+'</span><span class="lb">'+n[2]+'</span></button>'}).join('');
