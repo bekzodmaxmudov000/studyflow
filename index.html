@@ -308,11 +308,11 @@ var qs=null,src='demo',why='',title='Demo test';
 if(Q.api||Q.fn){Q.ctl=new AbortController();
 try{var d=await qzAsk(text,Q.ctl.signal);qs=qzClean(d);if(qs){src='ai';title=(d&&typeof d.title==='string'&&d.title)||'AI test'}else why='AI javobi tushunarsiz chiqdi, demo rejimga o‘tildi.'}
 catch(e){if(e&&(e.code==='cancelled'||e.name==='AbortError')){Q.stage='input';render();return}
-why=e&&e.code==='not_granted'?'AI ruxsati berilmadi, demo rejimga o‘tildi.':e&&e.code==='rate_limited'?'AI hozir band, demo rejimga o‘tildi.':'AI javob bera olmadi, demo rejimga o‘tildi.'}}
+why=e&&e.code==='not_granted'?'AI ruxsati berilmadi, demo rejimga o‘tildi.':e&&e.code==='rate_limited'?'AI hozir band, demo rejimga o‘tildi.':'AI javob bera olmadi, demo rejimga o‘tildi.';if(e&&(e.detail||e.status))why+=' Sabab: '+(e.detail||'')+(e.status?' ('+e.status+')':'')}}
 if(!qs){qs=qzLocal(text);
 if(!qs){Q.stage='input';Q.msg=(why?why+' ':'')+'Demo rejimda test tuzish uchun kamida 3–4 gapli konspekt kerak. Mavzu nomi bo‘yicha test tuzish uchun AI kerak.';render();return}
 if(why)toast(why)}
-Q.qs=qs;Q.src=src;Q.title=title;Q.ans=[];Q.cur=0;Q.saved=false;Q.stage='taking';render();window.scrollTo(0,0)},
+Q.qs=qs;Q.src=src;Q.why=src==='ai'?'':why;Q.title=title;Q.ans=[];Q.cur=0;Q.saved=false;Q.stage='taking';render();window.scrollTo(0,0)},
 qzPick:function(i){Q.ans[Q.cur]=+i;var y=window.scrollY;render();window.scrollTo(0,y)},
 qzNext:function(){if(Q.cur<Q.qs.length-1){Q.cur++;render();window.scrollTo(0,0)}},
 qzPrev:function(){if(Q.cur>0){Q.cur--;render();window.scrollTo(0,0)}},
@@ -384,14 +384,14 @@ $('#nav').addEventListener('click',function(e){var b=e.target.closest('[data-tab
 var QSAMPLE='Fotosintez — o‘simliklar quyosh nurini kimyoviy energiyaga aylantiradigan jarayondir. Bu jarayon xloroplastlarda sodir bo‘ladi. Xlorofill pigmenti quyosh nurini yutadi va o‘simlikka yashil rang beradi. Fotosintez davomida karbonat angidrid va suv glyukoza hamda kislorodga aylanadi. Kislorod atmosferaga chiqariladi va barcha tirik organizmlar nafas olishi uchun zarur. Glyukoza o‘simlikning o‘sishi va rivojlanishi uchun energiya manbai bo‘ladi. Fotosintezning yorug‘lik bosqichi tilakoid membranalarida kechadi. Qorong‘ilik bosqichi esa stromada, ya’ni Kalvin sikli orqali amalga oshadi.';
 var Q={api:undefined,stage:'input',text:'',count:5,diff:'O‘rta',qs:[],ans:[],cur:0,src:'',title:'',ai:undefined,fn:null,ctl:null,saved:false,msg:''};
 try{if(!(window.claude&&claude.use))Q.ai=false;else claude.use('sample').then(function(f){Q.fn=f;Q.ai=!!f;var b=$('#qz-badge');if(b)b.innerHTML=qzBadge()}).catch(function(){Q.ai=false})}catch(e){Q.ai=false}
-try{fetch('/api/quiz').then(function(r){return r.ok?r.json():null}).then(function(j){Q.api=!!(j&&j.ok);var b=$('#qz-badge');if(b)b.innerHTML=qzBadge()}).catch(function(){Q.api=false;var b=$('#qz-badge');if(b)b.innerHTML=qzBadge()})}catch(e){Q.api=false}
+try{fetch('/api/quiz').then(function(r){if(!r.ok){Q.apiWhy='/api/quiz topilmadi ('+r.status+'): api/quiz.js fayli deployga kirmagan';return null}return r.json()}).then(function(j){if(j&&j.ok&&j.hasKey)Q.api=true;else{Q.api=false;if(j&&j.ok)Q.apiWhy='GEMINI_API_KEY topilmadi: Environment Variables va Redeploy ni tekshiring'}var b=$('#qz-badge');if(b)b.innerHTML=qzBadge()}).catch(function(){Q.api=false;Q.apiWhy=Q.apiWhy||'serverga ulanib bo‘lmadi (sayt Vercel’da ochilganmi?)';var b=$('#qz-badge');if(b)b.innerHTML=qzBadge()})}catch(e){Q.api=false}
 document.addEventListener('input',function(e){if(e.target&&e.target.id==='qz-text')Q.text=e.target.value});
-function qzBadge(){return Q.api?'✨ AI ulangan: test Gemini tomonidan tuziladi':Q.ai?'✨ AI ulangan: test Claude tomonidan tuziladi':(Q.api===undefined||Q.ai===undefined)?'⏳ AI holati tekshirilmoqda…':'🧩 Demo rejim: AI ulanmagan, test konspekt gaplaridan oddiy usulda tuziladi'}
+function qzBadge(){return Q.api?'✨ AI ulangan: test Gemini tomonidan tuziladi':Q.ai?'✨ AI ulangan: test Claude tomonidan tuziladi':(Q.api===undefined||Q.ai===undefined)?'⏳ AI holati tekshirilmoqda…':'🧩 Demo rejim: '+(Q.apiWhy||'AI ulanmagan')+'. Test konspekt gaplaridan oddiy usulda tuziladi'}
 function qzShuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
 function qzPrompt(text){return 'You are a quiz generator for university students. Write '+Q.count+' multiple-choice questions in Uzbek (Latin script) based on the notes or topic below. Difficulty: '+Q.diff+'. Return ONLY valid JSON, no markdown fences, in this shape: {"title": string (short quiz title), "questions": [{"q": string, "options": [exactly 4 strings, no letter prefixes], "answer": integer 0-3 (index of the correct option), "explain": string (1-2 sentences on why it is correct), "topic": string (short sub-topic label, 1-3 words)}]}. Rules: exactly one option is correct; distractors must be plausible; vary the position of the correct answer; base the questions on the given text, and if the input is only a topic name, use well-established general knowledge about it.\n\nINPUT:\n'+text.slice(0,12000)}
 async function qzAsk(text,signal){
 if(Q.api){var r=await fetch('/api/quiz',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:text,count:Q.count,diff:Q.diff}),signal:signal});
-if(!r.ok)throw{code:r.status===429?'rate_limited':'failed'};return await r.json()}
+if(!r.ok){var j=null;try{j=await r.json()}catch(x){}throw{code:r.status===429?'rate_limited':'failed',status:r.status,detail:j&&(j.detail||j.error)}}return await r.json()}
 return await Q.fn.json(qzPrompt(text),{signal:signal})}
 function qzClean(d){var arr=d&&d.questions;if(!Array.isArray(arr))return null;
 var r=arr.filter(function(x){return x&&typeof x.q==='string'&&Array.isArray(x.options)&&x.options.length===4&&x.options.every(function(o){return typeof o==='string'})&&Number.isInteger(x.answer)&&x.answer>=0&&x.answer<4}).slice(0,Q.count).map(function(x){return{q:x.q,options:x.options,answer:x.answer,explain:String(x.explain||''),topic:String(x.topic||'Umumiy')}});
@@ -421,7 +421,7 @@ return'<h1>AI Test generatori</h1><p class="sub">Konspekt yoki mavzuni kiriting,
 function qzLoading(){return'<h1>AI Test generatori</h1><div class="box timer"><div class="spin"></div><b>Test tuzilmoqda…</b><p class="sub" style="margin:6px 0 16px">AI javobi 10–60 soniya olishi mumkin.</p><button class="btn ghost" data-a="qzStop">To‘xtatish</button></div>'}
 function qzTake(){var q=Q.qs[Q.cur],a=Q.ans[Q.cur],n=Q.qs.length;
 return'<h1>'+esc(Q.title)+'</h1><p class="sub">Savol '+(Q.cur+1)+' / '+n+(Q.src==='ai'?' · AI':' · demo rejim')+'</p><div class="bar" style="margin-bottom:18px"><i style="width:'+((Q.cur+1)/n*100)+'%"></i></div>'+
-'<div class="box"><h2 style="font-size:20px;line-height:1.35;margin-bottom:16px">'+esc(q.q)+'</h2>'+
+(Q.src==='demo'&&(Q.why||Q.apiWhy)?'<div class="warn">'+esc(Q.why||('AI ulanmagan: '+Q.apiWhy))+'</div>':'')+'<div class="box"><h2 style="font-size:20px;line-height:1.35;margin-bottom:16px">'+esc(q.q)+'</h2>'+
 q.options.map(function(o,i){return'<button class="opt'+(a===i?' on':'')+'" data-a="qzPick" data-id="'+i+'" aria-pressed="'+(a===i)+'"><b>'+'ABCD'[i]+'</b><span>'+esc(o)+'</span></button>'}).join('')+
 '<div class="row" style="justify-content:space-between;margin-top:8px"><button class="btn ghost" data-a="qzPrev"'+(Q.cur?'':' disabled')+'>← Oldingi</button>'+(Q.cur<n-1?'<button class="btn" data-a="qzNext">Keyingi →</button>':'<button class="btn" data-a="qzFinish">Yakunlash</button>')+'</div></div>'}
 function qzResult(){var n=Q.qs.length,right=0,tp={},wrong=[];
