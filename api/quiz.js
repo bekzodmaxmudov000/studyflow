@@ -37,11 +37,11 @@ function buildPrompt(text, count, diff) {
 }
 
 module.exports = async (req, res) => {
-  if (req.method === 'GET') return res.status(200).json({ ok: true, model: MODEL });
+  if (req.method === 'GET') return res.status(200).json({ ok: true, model: MODEL, hasKey: !!process.env.GEMINI_API_KEY });
   if (req.method !== 'POST') return res.status(405).json({ error: 'method_not_allowed' });
 
   const key = process.env.GEMINI_API_KEY;
-  if (!key) return res.status(500).json({ error: 'missing_api_key' });
+  if (!key) return res.status(500).json({ error: 'missing_api_key', detail: 'GEMINI_API_KEY topilmadi' });
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
@@ -67,8 +67,11 @@ module.exports = async (req, res) => {
     );
 
     if (!r.ok) {
-      console.error('Gemini error', r.status, await r.text());
-      return res.status(r.status === 429 ? 429 : 502).json({ error: 'gemini_error' });
+      const t = await r.text();
+      console.error('Gemini error', r.status, t);
+      let detail = t;
+      try { detail = JSON.parse(t).error.message; } catch (e) {}
+      return res.status(r.status === 429 ? 429 : 502).json({ error: 'gemini_error', detail: String(detail).slice(0, 200) });
     }
 
     const data = await r.json();
@@ -80,6 +83,6 @@ module.exports = async (req, res) => {
     return res.status(200).json(JSON.parse(out));
   } catch (e) {
     console.error(e);
-    return res.status(500).json({ error: 'server_error' });
+    return res.status(500).json({ error: 'server_error', detail: String((e && e.message) || e).slice(0, 200) });
   }
 };
