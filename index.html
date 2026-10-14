@@ -183,10 +183,119 @@ textarea{width:100%;min-height:170px;resize:vertical;background:var(--bg);border
 .banner{display:block;width:100%;max-width:520px;height:auto;border-radius:14px;margin:0 0 12px}
 @media (min-width:801px){.app.min .logo .lt{display:none}.app.min .logo{margin:0}}
 @media (max-width:800px){.mtop{display:flex;align-items:center;gap:9px;padding:16px 18px 0;font-weight:800;font-size:20px;letter-spacing:-.02em}.mtop b{color:#1a86ff;font-weight:800}.mtop+main{padding-top:18px}}
+[hidden]{display:none!important}
+#auth{display:none;position:fixed;inset:0;z-index:60;background:var(--bg);overflow:auto}
+.noauth #auth{display:grid;grid-template-columns:1.05fr 1fr}
+.noauth .app,.noauth .mtop,.noauth .qkf{display:none!important}
+.ab{position:relative;overflow:hidden;color:#fff;padding:48px 56px;display:flex;flex-direction:column;justify-content:space-between;gap:32px;background:radial-gradient(900px 520px at 90% -10%,rgba(56,189,248,.38),transparent 60%),radial-gradient(700px 520px at -10% 110%,rgba(99,102,241,.5),transparent 60%),linear-gradient(160deg,#050c24,#0a2060 60%,#0d3fae)}
+.ab::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(circle at 30% 45%,#000,transparent 75%);mask-image:radial-gradient(circle at 30% 45%,#000,transparent 75%)}
+.ab>*{position:relative}
+.blogo{display:flex;align-items:center;gap:12px;font-size:28px;font-weight:800;letter-spacing:-.02em}
+.blogo b{color:#38b6ff;font-weight:800}
+.ab h2{font-size:clamp(28px,3vw,42px);line-height:1.12;letter-spacing:-.03em;margin:0 0 14px;font-weight:800;text-wrap:balance}
+.ab p{color:rgba(255,255,255,.78);max-width:430px;margin:0 0 30px;font-size:17px}
+.feat{list-style:none;padding:0;margin:0;display:grid;gap:16px}
+.feat li{display:flex;gap:14px;align-items:flex-start}
+.feat i{flex:none;width:36px;height:36px;border-radius:11px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;font-style:normal}
+.feat small{display:block;color:rgba(255,255,255,.62)}
+.bfoot{color:rgba(255,255,255,.5);font-size:14px}
+.aform{display:grid;place-items:center;padding:36px 22px}
+.acard{width:min(440px,100%)}
+.acard h1{margin-bottom:6px}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px;margin-bottom:28px}
+.seg button{border:0;background:none;padding:10px;border-radius:10px;font-weight:700;color:var(--mute);cursor:pointer}
+.seg button.on{background:var(--acc);color:var(--acc-ink)}
+.fld{display:grid;gap:6px;margin-bottom:14px}
+.fld>span{font-size:14px;color:var(--mute);font-weight:600}
+.fld input{padding:13px 14px;border-radius:12px;font-size:16px;width:100%}
+.pw{position:relative}
+.pw input{padding-right:50px}
+.pw button{position:absolute;right:6px;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--mute);width:38px;height:38px;border-radius:10px;cursor:pointer;display:grid;place-items:center}
+.pw button:hover{color:var(--ink)}
+.rem{display:flex;gap:9px;align-items:center;font-size:14px;margin:4px 0 18px;color:var(--mute);cursor:pointer}
+.rem input{width:18px;height:18px;accent-color:var(--acc)}
+.btn.full{width:100%;padding:14px;font-size:16px;border-radius:12px}
+.aerr{background:rgba(217,56,58,.1);border:1px solid var(--bad);color:var(--bad);border-radius:12px;padding:10px 14px;margin-bottom:14px;font-size:14px}
+.aswitch{text-align:center;color:var(--mute);margin:18px 0 0;font-size:15px}
+.alink{background:none;border:0;color:var(--acc);font-weight:700;cursor:pointer;padding:0;font-size:inherit}
+.alink:hover{text-decoration:underline}
+.anote{margin-top:22px;font-size:13px;color:var(--mute);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;line-height:1.45}
+.str{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:6px}
+.str i{height:5px;border-radius:9px;background:var(--line)}
+.str[data-s="1"] i:nth-child(-n+1){background:#e5484d}
+.str[data-s="2"] i:nth-child(-n+2){background:#f5a623}
+.str[data-s="3"] i:nth-child(-n+3){background:#7cc242}
+.str[data-s="4"] i{background:var(--ok)}
+.strl{color:var(--mute);min-height:16px}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#1a86ff,#6a5cff);color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+.av.big{width:52px;height:52px;font-size:22px}
+.me{display:flex;align-items:center;gap:10px;margin-top:auto;padding:10px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.mn{display:grid;min-width:0;flex:1}
+.mn b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px}
+.mn small{color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+@media (min-width:801px){.side{overflow-y:auto}.app.min .me{flex-direction:column;padding:8px;gap:6px}}
+@media (max-width:860px){.noauth #auth{grid-template-columns:1fr;display:block}.ab{padding:26px 24px;gap:14px}.ab p,.feat,.bfoot{display:none}.ab h2{font-size:26px;margin:0}.blogo{font-size:24px}.aform{padding:26px 20px 40px}}
+@media (max-width:800px){.me{display:none}}
+@media (max-width:480px){.seg button{font-size:14px;padding:10px 4px;white-space:nowrap}}
+.aok{background:rgba(20,147,95,.1);border:1px solid var(--ok);color:var(--ok);border-radius:12px;padding:10px 14px;margin-bottom:14px;font-size:14px;line-height:1.45}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
+<div id="auth">
+<section class="ab">
+<div class="blogo"><img src="/logo-mark.png" alt="" width="44" height="44" onerror="this.remove()"><span>Study<b>Flow</b></span></div>
+<div class="bmid"><h2>O‘qishni tartibga soling,<br>natijaga erishing</h2><p>Talabalar uchun aqlli o‘qish va vaqtni boshqarish platformasi.</p>
+<ul class="feat">
+<li><i>🧠</i><div><b>Aqlli reja</b><small>Muddatlaringizga qarab kunlik o‘qish rejasi</small></div></li>
+<li><i>✨</i><div><b>AI Test va AI yordamchi</b><small>Konspektdan test tuzing, savollarga javob oling</small></div></li>
+<li><i>🗓️</i><div><b>Dars jadvali, taymer, imtihonlar</b><small>Hammasi bir joyda, tartibli</small></div></li>
+</ul></div>
+<div class="bfoot">© StudyFlow</div>
+</section>
+<section class="aform"><div class="acard">
+<div class="seg" role="tablist" aria-label="Kirish yoki ro‘yxatdan o‘tish"><button type="button" role="tab" class="on" data-am="login" aria-selected="true">Kirish</button><button type="button" role="tab" data-am="register" aria-selected="false">Ro‘yxatdan o‘tish</button></div>
+<form id="au-login" novalidate>
+<h1>Xush kelibsiz 👋</h1><p class="sub" style="margin-bottom:22px">Hisobingizga kiring va o‘qishni davom ettiring.</p>
+<div class="aok" id="au-linfo" role="status" hidden></div>
+<div class="aerr" id="au-lerr" role="alert" hidden></div>
+<label class="fld"><span>Email</span><input id="au-le" type="email" name="email" autocomplete="username" placeholder="siz@example.com" required></label>
+<label class="fld"><span>Parol</span><div class="pw"><input id="au-lp" type="password" name="password" autocomplete="current-password" placeholder="Parolingiz" required><button type="button" data-eye="au-lp" aria-label="Parolni ko‘rsatish"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div></label>
+<label class="rem" style="margin-bottom:6px"><input id="au-rm" type="checkbox" checked> Meni eslab qol</label>
+<p style="margin:0 0 16px;text-align:right"><button type="button" class="alink" id="au-fg" data-am="forgot" hidden>Parolni unutdim?</button></p>
+<button class="btn full" id="au-lbtn" type="submit">Kirish</button>
+<p class="aswitch">Hisobingiz yo‘qmi? <button type="button" class="alink" data-am="register">Ro‘yxatdan o‘ting</button></p>
+</form>
+<form id="au-reg" novalidate hidden>
+<h1>Hisob yarating</h1><p class="sub" style="margin-bottom:22px">Bir daqiqada boshlang, hammasi bepul.</p>
+<div class="aok" id="au-rinfo" role="status" hidden></div>
+<div class="aerr" id="au-rerr" role="alert" hidden></div>
+<div class="anote" id="au-legacy" hidden style="margin:0 0 14px">Shu qurilmadagi mavjud ma’lumotlaringiz birinchi hisobingizga ulanadi.</div>
+<label class="fld"><span>Ismingiz</span><input id="au-rn" type="text" name="name" autocomplete="name" placeholder="Masalan: Ali" maxlength="40" required></label>
+<label class="fld"><span>Email</span><input id="au-re" type="email" name="email" autocomplete="email" placeholder="siz@example.com" required></label>
+<label class="fld"><span>Parol</span><div class="pw"><input id="au-rp" type="password" name="new-password" autocomplete="new-password" placeholder="Kamida 8 belgi" required><button type="button" data-eye="au-rp" aria-label="Parolni ko‘rsatish"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+<div class="str" id="au-str" data-s="0"><i></i><i></i><i></i><i></i></div><small class="strl" id="au-strl"></small></label>
+<label class="fld"><span>Parolni takrorlang</span><div class="pw"><input id="au-rp2" type="password" name="new-password" autocomplete="new-password" placeholder="Parolni qayta kiriting" required><button type="button" data-eye="au-rp2" aria-label="Parolni ko‘rsatish"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div></label>
+<button class="btn full" id="au-rbtn" type="submit" style="margin-top:6px">Ro‘yxatdan o‘tish</button>
+<p class="aswitch">Hisobingiz bormi? <button type="button" class="alink" data-am="login">Kirish</button></p>
+</form>
+<form id="au-forgot" novalidate hidden>
+<h1>Parolni tiklash</h1><p class="sub" style="margin-bottom:22px">Emailingizni kiriting, parolni yangilash havolasini yuboramiz.</p>
+<div class="aerr" id="au-ferr" role="alert" hidden></div><div class="aok" id="au-finfo" role="status" hidden></div>
+<label class="fld"><span>Email</span><input id="au-fe" type="email" autocomplete="email" placeholder="siz@example.com" required></label>
+<button class="btn full" id="au-fbtn" type="submit">Havola yuborish</button>
+<p class="aswitch"><button type="button" class="alink" data-am="login">← Kirishga qaytish</button></p>
+</form>
+<form id="au-reset" novalidate hidden>
+<h1>Yangi parol</h1><p class="sub" style="margin-bottom:22px">Hisobingiz uchun yangi parol o‘rnating.</p>
+<div class="aerr" id="au-xerr" role="alert" hidden></div>
+<label class="fld"><span>Yangi parol</span><div class="pw"><input id="au-xp" type="password" autocomplete="new-password" placeholder="Kamida 8 belgi" required><button type="button" data-eye="au-xp" aria-label="Parolni ko‘rsatish"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div></label>
+<label class="fld"><span>Parolni takrorlang</span><input id="au-xp2" type="password" autocomplete="new-password" placeholder="Parolni qayta kiriting" required></label>
+<button class="btn full" id="au-xbtn" type="submit">Parolni saqlash</button>
+</form>
+<div class="anote" id="au-note">ℹ️ Hozircha hisoblar va yozuvlar faqat shu brauzerda saqlanadi (demo kirish). Boshqa qurilmada kirib bo‘lmaydi.</div>
+</div></section>
+</div>
 <div class="app">
 <nav class="side" id="nav"></nav>
 <header class="mtop"><img src="/logo-mark.png" alt="" width="30" height="30" onerror="this.style.display='none'"><span>Study<b>Flow</b></span></header>
@@ -195,11 +304,31 @@ textarea{width:100%;min-height:170px;resize:vertical;background:var(--bg);border
 <div id="toast"></div>
 <button class="qkf" data-a="qaOpen" aria-label="Tezkor amallar">🔎</button>
 <div id="qa" hidden role="dialog" aria-modal="true" aria-label="Tezkor amallar"><div class="qbox"><input id="qq" role="combobox" aria-expanded="true" aria-controls="ql" placeholder="Qayerga o‘tamiz yoki nima qilamiz?" autocomplete="off" aria-label="Qidirish"><div id="ql" role="listbox"></div><div class="qh">↑ ↓ tanlash · Enter bajarish · Esc yopish</div></div></div>
+<script src="/config.js"></script>
 <script>
-var K='studyflow_v1',S=blank();
+var AUK={u:'sf_users',s:'sf_session'},AU={user:null};
+var CFG=window.SF_CONFIG||{},SB={on:!!(CFG.SUPABASE_URL&&CFG.SUPABASE_KEY),url:String(CFG.SUPABASE_URL||'').replace(/\/+$/,''),key:String(CFG.SUPABASE_KEY||''),ses:null,recovery:null,refreshing:null,store:null},SBK='sf_sb_session',SY={timer:null,dirty:false,busy:false,last:null,err:'',v:0};
+function auGet(k,st){try{return JSON.parse((st||localStorage).getItem(k)||'null')}catch(e){return null}}
+function jwtUser(t){try{var b=String(t).split('.')[1].replace(/-/g,'+').replace(/_/g,'/');var o=JSON.parse(decodeURIComponent(escape(atob(b))));return o&&o.sub?{id:o.sub,email:o.email||'',user_metadata:o.user_metadata||{}}:null}catch(e){return null}}
+(function(){
+if(SB.on){
+var h=location.hash.replace(/^#/,'');
+if(h.indexOf('access_token=')>-1){var p=new URLSearchParams(h),at=p.get('access_token'),rt=p.get('refresh_token'),ty=p.get('type'),ex=+p.get('expires_in')||3600;
+try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}
+if(ty==='recovery')SB.recovery={access_token:at,refresh_token:rt};
+else{var ju=jwtUser(at);if(ju){SB.ses={access_token:at,refresh_token:rt,expires_at:Math.floor(Date.now()/1000)+ex,user:ju};SB.store=localStorage;try{localStorage.setItem(SBK,JSON.stringify(SB.ses))}catch(e){}}}}
+if(!SB.ses&&!SB.recovery){var l1=auGet(SBK),l2=auGet(SBK,sessionStorage);SB.ses=l1||l2;SB.store=l1?localStorage:sessionStorage}
+var u=SB.ses&&SB.ses.user;
+if(u&&u.id)AU.user={id:u.id,email:u.email||'',name:(u.user_metadata&&u.user_metadata.name)||String(u.email||'').split('@')[0]||'Foydalanuvchi'}
+}else{
+var s=auGet(AUK.s)||auGet(AUK.s,sessionStorage),us=auGet(AUK.u)||[];AU.user=s&&s.uid?us.find(function(x){return x.id===s.uid})||null:null}
+})();
+document.documentElement.classList.toggle('noauth',!AU.user);
+var K=AU.user?'studyflow_v1_'+AU.user.id:'studyflow_v1_guest',S=blank();
 function blank(){return{subjects:[],tasks:[],exams:[],sessions:[],focus:25,daily:120,sched:[],chat:[],chats:[],chatId:null}}
 try{var r=localStorage.getItem(K);if(r)S=Object.assign(blank(),JSON.parse(r))}catch(e){}
-function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+if(AU.user&&!S.name)S.name=AU.user.name;
+function save(){if(!AU.user)return;S.__ts=Date.now();try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}if(SB.on)sbPushSoon()}
 var $=function(s){return document.querySelector(s)};
 var uid=function(){return Math.random().toString(36).slice(2,9)};
 var esc=function(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
@@ -249,7 +378,7 @@ var th=S.theme||'auto';
 var chips=function(list,cur,act){return'<div class="chips">'+list.map(function(x){return'<button class="chip '+(cur===x[0]?'on':'')+'" data-a="'+act+'" data-id="'+x[0]+'" aria-pressed="'+(cur===x[0])+'">'+x[1]+'</button>'}).join('')+'</div>'};
 var sel=function(id,list,cur){return'<select id="'+id+'" data-change="setQ">'+list.map(function(v){return'<option'+(String(cur)===String(v)?' selected':'')+'>'+v+'</option>'}).join('')+'</select>'};
 return'<h1>Sozlamalar</h1><p class="sub">Saytni o‘zingizga moslang. Hamma o‘zgarish shu brauzerda saqlanadi.</p>'+
-'<div class="box"><h2>Profil</h2><div class="row"><label class="f">Ismingiz<input id="st-name" value="'+esc(S.name||'')+'" placeholder="Masalan: Ali" maxlength="30" data-change="setName"></label></div><small style="color:var(--mute)">Bosh sahifada salomlashish uchun ishlatiladi.</small></div>'+
+accountBox()+'<div class="box"><h2>Profil</h2><div class="row"><label class="f">Ismingiz<input id="st-name" value="'+esc(S.name||'')+'" placeholder="Masalan: Ali" maxlength="30" data-change="setName"></label></div><small style="color:var(--mute)">Bosh sahifada salomlashish uchun ishlatiladi.</small></div>'+
 '<div class="box"><h2>Ko‘rinish</h2><div style="margin-bottom:6px;color:var(--mute);font-size:14px">Mavzu</div>'+chips([['auto','Avto'],['light','Yorug‘'],['dark','Qorong‘i']],th,'setTheme')+
 '<div style="margin:12px 0 6px;color:var(--mute);font-size:14px">Yon menyu (kompyuterda)</div>'+chips([['open','Ochiq'],['min','Yig‘ilgan']],S.navMin?'min':'open','setNav')+'</div>'+
 '<div class="box"><h2>O‘qish</h2><div class="row"><label class="f">Kuniga o‘qish vaqti (soat)<input id="st-daily" type="number" min="0.5" max="16" step="0.5" value="'+S.daily/60+'" data-change="setDailyS"></label>'+
@@ -379,7 +508,7 @@ var qs=null,src='demo',why='',title='Demo test';
 if(Q.api||Q.fn){Q.ctl=new AbortController();
 try{var d=await qzAsk(text,Q.ctl.signal);qs=qzClean(d);if(qs){src='ai';title=(d&&typeof d.title==='string'&&d.title)||'AI test'}else why='AI javobi tushunarsiz chiqdi, demo rejimga o‘tildi.'}
 catch(e){if(e&&(e.code==='cancelled'||e.name==='AbortError')){Q.stage='input';render();return}
-why=e&&e.code==='not_granted'?'AI ruxsati berilmadi, demo rejimga o‘tildi.':e&&e.code==='rate_limited'?'AI hozir band, demo rejimga o‘tildi.':'AI javob bera olmadi, demo rejimga o‘tildi.';if(e&&(e.detail||e.status))why+=' Sabab: '+(e.detail||'')+(e.status?' ('+e.status+')':'')}}
+why=e&&e.code==='not_granted'?'AI ruxsati berilmadi, demo rejimga o‘tildi.':e&&e.code==='rate_limited'?'AI hozir band, demo rejimga o‘tildi.':'AI javob bera olmadi, demo rejimga o‘tildi.';if(e&&(e.detail||e.status))why+=' Sabab: '+(e.detail||'')+(e.status?' ('+e.status+')':'');if(e&&e.status===401)why='Sessiya tugagan yoki kirmagansiz. Chiqib, qaytadan kiring. Demo rejimga o‘tildi.'}}
 if(!qs){qs=qzLocal(text);
 if(!qs){Q.stage='input';Q.msg=(why?why+' ':'')+'Demo rejimda test tuzish uchun kamida 3–4 gapli konspekt kerak. Mavzu nomi bo‘yicha test tuzish uchun AI kerak.';render();return}
 if(why)toast(why)}
@@ -394,7 +523,7 @@ qzRetry:function(){Q.ans=[];Q.cur=0;Q.saved=false;Q.stage='taking';render();wind
 qzRetryWrong:function(){Q.qs=Q.qs.filter(function(q,i){return Q.ans[i]!==q.answer});Q.title=Q.title.replace(/ \(xatolar\)$/,'')+' (xatolar)';Q.ans=[];Q.cur=0;Q.saved=false;Q.stage='taking';render();window.scrollTo(0,0)},
 qzNew:function(){Q.stage='input';Q.msg='';render();window.scrollTo(0,0)},
 qzToTasks:function(){var seen={},c=0;Q.qs.forEach(function(q,i){if(Q.ans[i]===q.answer)return;var t=q.topic||'Umumiy';if(seen[t])return;seen[t]=1;var title='Takrorlash: '+t;if(S.tasks.some(function(x){return x.title===title&&!x.done}))return;S.tasks.push({id:uid(),title:title,sid:'',due:'',pr:3,est:30,done:false});c++});save();toast(c?c+' ta vazifa qo‘shildi':'Bu vazifalar allaqachon bor')},
-setName:function(){S.name=$('#st-name').value.trim().slice(0,30);save();toast('Ism saqlandi')},
+setName:function(){S.name=$('#st-name').value.trim().slice(0,30);save();toast('Ism saqlandi');render()},
 setTheme:function(id){S.theme=id;save();applyTheme();render()},
 cycleTheme:function(){var o=['auto','light','dark'];S.theme=o[(o.indexOf(S.theme||'auto')+1)%3];save();applyTheme();toast('Mavzu: '+{auto:'avto',light:'yorug‘',dark:'qorong‘i'}[S.theme]);if(tab==='settings')render()},
 setNav:function(id){S.navMin=id==='min';save();applyNav();render()},
@@ -435,15 +564,17 @@ chat.updated=Date.now();chSort();save();
 C.busy=true;C.busyId=chat.id;C.ctl=new AbortController();chUpdate();chListUpdate();
 try{
 var msgs=chat.msgs.slice(-16).map(function(m){return{role:m.r,text:m.t}});
-var r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:msgs,context:S.chatCtx===false?'':chContext()}),signal:C.ctl.signal});
+var r=await fetch('/api/chat',{method:'POST',headers:await sbHeaders(),body:JSON.stringify({messages:msgs,context:S.chatCtx===false?'':chContext()}),signal:C.ctl.signal});
 var j=null;try{j=await r.json()}catch(x){}
 if(!r.ok||!j||!j.reply)throw{status:r.status,detail:j&&(j.detail||j.error)};
 chat.msgs.push({r:'model',t:j.reply});chat.msgs=chat.msgs.slice(-60);chat.updated=Date.now();chSort();save()
 }catch(e){C.errId=chat.id;
 if(e&&e.name==='AbortError')C.err='To‘xtatildi.';
+else if(e&&e.status===401)C.err='Sessiya tugagan yoki kirmagansiz. Chiqib, qaytadan kiring.';
 else if(e&&e.status===404)C.err='AI chat funksiyasi topilmadi (404): api/chat.js faylini api papkasiga qo‘shib, qayta deploy qiling.';
 else C.err='AI javob bera olmadi'+(e&&e.detail?'. Sabab: '+e.detail:'')+(e&&e.status?' ('+e.status+')':'')}
 C.busy=false;chUpdate();chListUpdate()},
+logout:function(){authLogout()},
 goPlan:function(){tab='plan';render();window.scrollTo(0,0)},
 setDaily:function(){var v=parseFloat($('#daily').value);if(v>=0.5&&v<=16){S.daily=Math.round(v*60);save()}render()},
 startPlan:function(sid){if(!T.run)T.sid=sid;tab='timer';render();window.scrollTo(0,0)},
@@ -491,7 +622,7 @@ function qaRender(){qaFilter();
 $('#ql').innerHTML=QA.list.length?QA.list.map(function(it,i){return'<div class="qr'+(i===QA.sel?' on':'')+'" role="option" id="qr'+i+'" aria-selected="'+(i===QA.sel)+'" data-qi="'+i+'"><span aria-hidden="true">'+it.i+'</span><span>'+esc(it.t)+'</span><small>'+it.g+'</small></div>'}).join(''):'<div class="empty" style="padding:18px">Hech narsa topilmadi.</div>';
 var el=$('.qr.on');if(el)el.scrollIntoView({block:'nearest'});
 $('#qq').setAttribute('aria-activedescendant',QA.list.length?'qr'+QA.sel:'')}
-function qaOpen(){QA.prev=document.activeElement;QA.open=true;QA.all=qaItems();QA.sel=0;$('#qa').hidden=false;$('#qq').value='';qaRender();$('#qq').focus()}
+function qaOpen(){if(!AU.user)return;QA.prev=document.activeElement;QA.open=true;QA.all=qaItems();QA.sel=0;$('#qa').hidden=false;$('#qq').value='';qaRender();$('#qq').focus()}
 function qaClose(){if(!QA.open)return;QA.open=false;$('#qa').hidden=true;if(QA.prev&&QA.prev.focus)QA.prev.focus()}
 function qaRun(i){var it=QA.list[i];if(!it)return;qaClose();it.f()}
 document.addEventListener('keydown',function(e){var k=(e.key||'');
@@ -514,7 +645,7 @@ function qzBadge(){return Q.api?'✨ AI ulangan: test Gemini tomonidan tuziladi'
 function qzShuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
 function qzPrompt(text){return 'You are a quiz generator for university students. Write '+Q.count+' multiple-choice questions in Uzbek (Latin script) based on the notes or topic below. Difficulty: '+Q.diff+'. Return ONLY valid JSON, no markdown fences, in this shape: {"title": string (short quiz title), "questions": [{"q": string, "options": [exactly 4 strings, no letter prefixes], "answer": integer 0-3 (index of the correct option), "explain": string (1-2 sentences on why it is correct), "topic": string (short sub-topic label, 1-3 words)}]}. Rules: exactly one option is correct; distractors must be plausible; vary the position of the correct answer; base the questions on the given text, and if the input is only a topic name, use well-established general knowledge about it.\n\nINPUT:\n'+text.slice(0,12000)}
 async function qzAsk(text,signal){
-if(Q.api){var r=await fetch('/api/quiz',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:text,count:Q.count,diff:Q.diff}),signal:signal});
+if(Q.api){var r=await fetch('/api/quiz',{method:'POST',headers:await sbHeaders(),body:JSON.stringify({text:text,count:Q.count,diff:Q.diff}),signal:signal});
 if(!r.ok){var j=null;try{j=await r.json()}catch(x){}throw{code:r.status===429?'rate_limited':'failed',status:r.status,detail:j&&(j.detail||j.error)}}return await r.json()}
 return await Q.fn.json(qzPrompt(text),{signal:signal})}
 function qzClean(d){var arr=d&&d.questions;if(!Array.isArray(arr))return null;
@@ -562,8 +693,8 @@ function applyTheme(){var t=S.theme||'auto',r=document.documentElement;if(t==='a
 applyTheme();Q.count=S.qCount||5;Q.diff=S.qDiff||'O‘rta';
 var C={busy:false,busyId:null,ctl:null,err:'',errId:null,editId:null,delId:null,listOpen:false};
 function chMigrate(){if(!Array.isArray(S.chats))S.chats=[];
-if(Array.isArray(S.chat)&&S.chat.length&&!S.chats.length){var t=Date.now();S.chats=[{id:uid(),title:'Oldingi suhbat',named:true,msgs:S.chat.slice(-60),created:t,updated:t}];S.chatId=S.chats[0].id}
-S.chat=[];save()}
+if(Array.isArray(S.chat)&&S.chat.length&&!S.chats.length){var t=Date.now();S.chats=[{id:uid(),title:'Oldingi suhbat',named:true,msgs:S.chat.slice(-60),created:t,updated:t}];S.chatId=S.chats[0].id;S.chat=[];save();return}
+S.chat=[]}
 chMigrate();
 var SUG=['Bugun nimani o‘qishim kerak?','Imtihonga qanday tayyorlanay?','Mavzuni oddiy tilda tushuntirib ber','Menga haftalik o‘qish rejasi tuzib ber'];
 function chInl(s){return s.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/`([^`]+)`/g,'<code>$1</code>').replace(/(^|[^*])\*([^*\n]+)\*/g,'$1<i>$2</i>')}
@@ -611,9 +742,176 @@ document.addEventListener('keydown',function(e){if(e.target&&e.target.id==='rn-i
 document.addEventListener('focusout',function(e){if(e.target&&e.target.id==='rn-in'&&C.editId)A.chRenameSave(true)});
 document.addEventListener('keydown',function(e){if(e.target&&e.target.id==='ch-in'&&e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();A.chSend()}});
 document.addEventListener('input',function(e){var t=e.target;if(t&&t.id==='ch-in'){t.style.height='auto';t.style.height=Math.min(140,t.scrollHeight)+'px'}});
+var ICO_OUT='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>';
+var AUL={n:0,until:0};
+function b64(u8){var s='';for(var i=0;i<u8.length;i++)s+=String.fromCharCode(u8[i]);return btoa(s)}
+function unb64(t){var s=atob(t),u=new Uint8Array(s.length);for(var i=0;i<s.length;i++)u[i]=s.charCodeAt(i);return u}
+async function auHash(pw,salt){var k=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveBits']);var bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:salt,iterations:120000,hash:'SHA-256'},k,256);return b64(new Uint8Array(bits))}
+function auUsers(){return auGet(AUK.u)||[]}
+function auSetSession(id,remember){try{localStorage.removeItem(AUK.s);sessionStorage.removeItem(AUK.s)}catch(e){}(remember?localStorage:sessionStorage).setItem(AUK.s,JSON.stringify({uid:id}))}
+function auErr(id,msg){var e=$('#'+id);if(!e)return;e.textContent=msg||'';e.hidden=!msg}
+function auHasData(o){return!!o&&(!!o.name||['tasks','subjects','exams','sessions','sched','chats','chat'].some(function(k){return Array.isArray(o[k])&&o[k].length}))}
+function auHasContent(o){return!!o&&['tasks','subjects','exams','sessions','sched','chats','chat'].some(function(k){return Array.isArray(o[k])&&o[k].length})}
+function auLegacy(){try{var r=localStorage.getItem('studyflow_v1');return!!r&&auHasData(JSON.parse(r))}catch(e){return false}}
+function authMode(m){['login','reg','forgot','reset'].forEach(function(n){var el=$('#au-'+n);if(el)el.hidden=(n!==(m==='register'?'reg':m))});
+var sg=$('.seg');if(sg)sg.hidden=(m==='forgot'||m==='reset');
+document.querySelectorAll('.seg button').forEach(function(b){var on=b.dataset.am===m;b.classList.toggle('on',on);b.setAttribute('aria-selected',String(on))});
+['au-lerr','au-rerr','au-ferr','au-xerr','au-linfo','au-rinfo','au-finfo'].forEach(function(i){auErr(i,'')});
+var f=$({login:'#au-le',register:'#au-rn',forgot:'#au-fe',reset:'#au-xp'}[m]);if(f)f.focus()}
+function auStrength(){var p=$('#au-rp').value,sc=0;if(p.length>=8)sc++;if(p.length>=12)sc++;if(/[a-z]/.test(p)&&/[A-Z]/.test(p))sc++;if(/\d/.test(p)&&/\D/.test(p))sc++;if(/[^A-Za-z0-9]/.test(p))sc++;sc=p?Math.min(4,Math.max(1,sc)):0;
+$('#au-str').setAttribute('data-s',String(sc));$('#au-strl').textContent=p?['','Juda zaif','Zaif','Yaxshi','Kuchli'][sc]:''}
+async function authLogin(ev){ev.preventDefault();
+var em=$('#au-le').value.trim().toLowerCase(),pw=$('#au-lp').value,btn=$('#au-lbtn');auErr('au-lerr','');
+if(!em||!pw){auErr('au-lerr','Email va parolni kiriting');return}
+if(AUL.until>Date.now()){auErr('au-lerr','Juda ko‘p urinish. '+Math.ceil((AUL.until-Date.now())/1000)+' soniyadan keyin qayta urinib ko‘ring');return}
+btn.disabled=true;btn.textContent='Tekshirilmoqda…';
+try{
+if(!(window.crypto&&crypto.subtle))throw new Error('crypto');
+var u=auUsers().find(function(x){return x.email===em}),ok=false;
+if(u)ok=(await auHash(pw,unb64(u.salt)))===u.hash;else await auHash(pw,new Uint8Array(16));
+if(ok){auSetSession(u.id,$('#au-rm').checked);location.reload();return}
+AUL.n++;if(AUL.n>=5){AUL.until=Date.now()+30000;AUL.n=0}
+auErr('au-lerr',u||auUsers().length?'Email yoki parol noto‘g‘ri':'Bunday hisob topilmadi. Avval ro‘yxatdan o‘ting')
+}catch(e){auErr('au-lerr',e&&e.message==='crypto'?'Brauzeringiz xavfsiz rejimda emas (sayt HTTPS orqali ochilishi kerak)':'Kirishda xatolik yuz berdi. Qayta urinib ko‘ring')}
+btn.disabled=false;btn.textContent='Kirish'}
+async function authRegister(ev){ev.preventDefault();
+var nm=$('#au-rn').value.trim(),em=$('#au-re').value.trim().toLowerCase(),pw=$('#au-rp').value,pw2=$('#au-rp2').value,btn=$('#au-rbtn');auErr('au-rerr','');
+if(nm.length<2){auErr('au-rerr','Ismingizni kiriting (kamida 2 harf)');return}
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)){auErr('au-rerr','Email manzilini to‘g‘ri kiriting');return}
+if(pw.length<8){auErr('au-rerr','Parol kamida 8 belgidan iborat bo‘lsin');return}
+if(pw!==pw2){auErr('au-rerr','Parollar bir xil emas');return}
+btn.disabled=true;btn.textContent='Yaratilmoqda…';
+try{
+if(!(window.crypto&&crypto.subtle))throw new Error('crypto');
+var users=auUsers();
+if(users.some(function(x){return x.email===em})){auErr('au-rerr','Bu email allaqachon ro‘yxatdan o‘tgan. “Kirish” bo‘limidan foydalaning');btn.disabled=false;btn.textContent='Ro‘yxatdan o‘tish';return}
+var salt=crypto.getRandomValues(new Uint8Array(16)),hash=await auHash(pw,salt),id=uid()+uid();
+users.push({id:id,name:nm,email:em,salt:b64(salt),hash:hash,created:Date.now()});
+localStorage.setItem(AUK.u,JSON.stringify(users));
+var data=null;
+if(users.length===1){try{var lg=JSON.parse(localStorage.getItem('studyflow_v1')||'null');if(auHasData(lg))data=lg}catch(e){}}
+if(!data)data=blank();
+if(!data.name)data.name=nm;
+localStorage.setItem('studyflow_v1_'+id,JSON.stringify(data));
+auSetSession(id,true);location.reload();return
+}catch(e){auErr('au-rerr',e&&e.message==='crypto'?'Brauzeringiz xavfsiz rejimda emas (sayt HTTPS orqali ochilishi kerak)':'Hisob yaratib bo‘lmadi. Brauzer xotirasi yoqilganini tekshiring')}
+btn.disabled=false;btn.textContent='Ro‘yxatdan o‘tish'}
+function meHtml(){if(!AU.user)return'';var nm=S.name||AU.user.name;
+return'<div class="me"><span class="av">'+esc(nm.trim().charAt(0).toUpperCase()||'?')+'</span><span class="lb mn"><b>'+esc(nm)+'</b><small>'+esc(AU.user.email)+'</small></span><button class="x" data-a="logout" title="Chiqish" aria-label="Chiqish">'+ICO_OUT+'</button></div>'}
+function accountBox(){if(!AU.user)return'';var nm=S.name||AU.user.name;
+return'<div class="box"><h2>Hisob</h2><div class="row" style="align-items:center;gap:14px"><span class="av big">'+esc(nm.trim().charAt(0).toUpperCase()||'?')+'</span><div style="flex:1;min-width:0"><b>'+esc(nm)+'</b><br><small style="color:var(--mute)">'+esc(AU.user.email)+'</small></div><button class="btn ghost" data-a="logout">Chiqish</button></div>'+(SB.on?'<small id="sy-st" style="display:block;margin-top:12px;color:var(--mute)">'+syText()+'</small>':'<small style="display:block;margin-top:12px;color:var(--mute)">Hisob va barcha yozuvlar shu brauzerda saqlanadi (demo kirish).</small>')+'</div>'}
+$('#au-login').addEventListener('submit',SB.on?sbLogin:authLogin);$('#au-reg').addEventListener('submit',SB.on?sbRegister:authRegister);$('#au-forgot').addEventListener('submit',sbForgot);$('#au-reset').addEventListener('submit',sbReset);
+document.querySelectorAll('[data-am]').forEach(function(b){b.addEventListener('click',function(){authMode(b.dataset.am)})});
+document.querySelectorAll('[data-eye]').forEach(function(b){b.addEventListener('click',function(){var i=$('#'+b.dataset.eye);i.type=i.type==='password'?'text':'password';b.setAttribute('aria-label',i.type==='password'?'Parolni ko‘rsatish':'Parolni yashirish')})});
+$('#au-rp').addEventListener('input',auStrength);
+$('#au-login').addEventListener('input',function(){auErr('au-lerr','')});$('#au-reg').addEventListener('input',function(){auErr('au-rerr','')});
+if(SB.on){var nt=$('#au-note');if(nt)nt.textContent='🔒 Hisobingiz va ma’lumotlaringiz bulutda saqlanadi, istalgan qurilmada kirishingiz mumkin.';var fg=$('#au-fg');if(fg)fg.hidden=false}
+if(!AU.user){var lgEl=$('#au-legacy');
+if(SB.on){if(lgEl)lgEl.hidden=!auLegacy();var seen=false;try{seen=!!localStorage.getItem('sf_seen')}catch(e){}authMode(SB.recovery?'reset':seen?'login':'register')}
+else{if(lgEl)lgEl.hidden=!(auUsers().length===0&&auLegacy());authMode(auUsers().length?'login':'register')}}
+function sbEmailOk(e){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)}
+async function sbFetch(path,opt,tok){opt=opt||{};var h=Object.assign({apikey:SB.key,'Content-Type':'application/json'},opt.headers||{});
+if(tok)h.Authorization='Bearer '+tok;
+try{var r=await fetch(SB.url+path,{method:opt.method||'GET',headers:h,body:opt.body?JSON.stringify(opt.body):undefined,keepalive:!!opt.keepalive});
+var j=null;try{j=await r.json()}catch(e){}return{ok:r.ok,status:r.status,j:j}}catch(e){return{ok:false,status:0,j:null}}}
+function sbErr(r){var m=String(r.j&&(r.j.msg||r.j.error_description||r.j.message||r.j.error)||'').toLowerCase();
+if(r.status===0)return'Internetga ulanib bo‘lmadi. Ulanishni tekshiring';
+if(m.indexOf('invalid login')>-1)return'Email yoki parol noto‘g‘ri';
+if(m.indexOf('not confirmed')>-1)return'Email manzilingiz hali tasdiqlanmagan. Pochtangizdagi havolani bosing';
+if(m.indexOf('already registered')>-1||m.indexOf('already been registered')>-1)return'Bu email allaqachon ro‘yxatdan o‘tgan. “Kirish” bo‘limidan foydalaning';
+if(m.indexOf('same password')>-1)return'Yangi parol eskisidan farq qilsin';
+if(m.indexOf('password')>-1&&(m.indexOf('at least')>-1||m.indexOf('weak')>-1))return'Parol juda oddiy yoki qisqa';
+if(r.status===429||m.indexOf('rate limit')>-1)return'Juda ko‘p urinish. Birozdan keyin qayta urinib ko‘ring';
+if(m.indexOf('signups not allowed')>-1)return'Ro‘yxatdan o‘tish o‘chirib qo‘yilgan';
+return'Xatolik yuz berdi'+(m?': '+m.slice(0,100):'')}
+function sbSetSession(j,remember){var ses={access_token:j.access_token,refresh_token:j.refresh_token,expires_at:j.expires_at||Math.floor(Date.now()/1000)+(j.expires_in||3600),user:j.user};
+if(remember!==undefined)SB.store=remember?localStorage:sessionStorage;if(!SB.store)SB.store=localStorage;
+SB.ses=ses;try{localStorage.removeItem(SBK);sessionStorage.removeItem(SBK);SB.store.setItem(SBK,JSON.stringify(ses))}catch(e){}}
+async function sbToken(){if(!SB.on||!SB.ses)return null;var now=Math.floor(Date.now()/1000);
+if(SB.ses.expires_at-now>60)return SB.ses.access_token;
+if(!SB.refreshing)SB.refreshing=(async function(){var r=await sbFetch('/auth/v1/token?grant_type=refresh_token',{method:'POST',body:{refresh_token:SB.ses.refresh_token}});
+if(r.ok&&r.j&&r.j.access_token){sbSetSession(r.j);return SB.ses.access_token}
+if(r.status===400||r.status===401||r.status===403){try{localStorage.removeItem(SBK);sessionStorage.removeItem(SBK)}catch(e){}toast('Sessiya tugadi, qaytadan kiring');setTimeout(function(){location.reload()},1200);return null}
+return SB.ses.expires_at-now>0?SB.ses.access_token:null})();
+var t=await SB.refreshing;SB.refreshing=null;return t}
+async function sbHeaders(){var h={'Content-Type':'application/json'};var t=await sbToken();if(t)h.Authorization='Bearer '+t;return h}
+function hhmm(ts){var d=new Date(ts);return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')}
+function syText(){return SY.err?SY.err+' ⚠':(SY.dirty||SY.busy)?'Sinxronlanmoqda…':SY.last?'Bulutga saqlandi ✓ '+hhmm(SY.last):'Bulutga ulangan ✓'}
+function syUi(){var e=$('#sy-st');if(e)e.textContent=syText()}
+function sbPushSoon(){if(!(SB.on&&AU.user&&SB.ses))return;SY.dirty=true;SY.v++;clearTimeout(SY.timer);SY.timer=setTimeout(function(){sbPush()},1500);syUi()}
+async function sbPush(keep){if(!SY.dirty||SY.busy||!(SB.on&&AU.user&&SB.ses))return;SY.busy=true;var v=SY.v;
+try{var tok=await sbToken();if(!tok)throw new Error('token');
+var body={user_id:AU.user.id,data:S,updated_at:new Date(S.__ts||Date.now()).toISOString()};
+var r=await sbFetch('/rest/v1/user_data?on_conflict=user_id',{method:'POST',headers:{Prefer:'resolution=merge-duplicates,return=minimal'},body:body,keepalive:!!keep&&JSON.stringify(body).length<60000},tok);
+if(!r.ok)throw new Error(String(r.status));
+if(SY.v===v)SY.dirty=false;SY.last=Date.now();SY.err=''}catch(e){SY.err='Sinxronlash amalga oshmadi'}
+SY.busy=false;syUi();
+if(SY.err){clearTimeout(SY.timer);SY.timer=setTimeout(function(){sbPush()},15000)}else if(SY.dirty)sbPushSoon()}
+function applyAll(){['subjects','tasks','exams','sessions','sched','chat','chats'].forEach(function(k){if(!Array.isArray(S[k]))S[k]=[]});
+if(!S.name&&AU.user)S.name=AU.user.name;
+if(!T.run){T.total=T.left=(S.focus||25)*60}Q.count=S.qCount||5;Q.diff=S.qDiff||'O‘rta';applyTheme()}
+async function sbPull(){if(!(SB.on&&AU.user&&SB.ses))return;
+try{var tok=await sbToken();if(!tok)return;
+var r=await sbFetch('/rest/v1/user_data?select=data,updated_at&user_id=eq.'+AU.user.id,{},tok);if(!r.ok)throw new Error(String(r.status));
+var row=r.j&&r.j[0],lts=S.__ts||0;
+if(row){var rts=Date.parse(row.updated_at)||0;
+if(rts>lts+1000||(!auHasContent(S)&&auHasContent(row.data))){S=Object.assign(blank(),row.data||{});S.__ts=Math.max(rts,1);applyAll();try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}render();toast('Ma’lumotlar bulutdan yangilandi')}
+else if(lts>rts+1000){SY.dirty=true;SY.v++;sbPush()}
+else{SY.last=Date.now();SY.err=''}}
+else{var lg=auGet('studyflow_v1');if(auHasData(lg)&&!auHasContent(S)){S=Object.assign(blank(),lg);applyAll();render()}SY.dirty=true;SY.v++;S.__ts=S.__ts||Date.now();sbPush()}
+SY.err=SY.dirty?SY.err:''}catch(e){SY.err='Sinxronlash amalga oshmadi'}syUi()}
+async function sbLogin(ev){ev.preventDefault();
+var em=$('#au-le').value.trim().toLowerCase(),pw=$('#au-lp').value,btn=$('#au-lbtn');auErr('au-lerr','');auErr('au-linfo','');
+if(!em||!pw){auErr('au-lerr','Email va parolni kiriting');return}
+btn.disabled=true;btn.textContent='Tekshirilmoqda…';
+var r=await sbFetch('/auth/v1/token?grant_type=password',{method:'POST',body:{email:em,password:pw}});
+if(r.ok&&r.j&&r.j.access_token){sbSetSession(r.j,$('#au-rm').checked);try{localStorage.setItem('sf_seen','1')}catch(e){}location.reload();return}
+auErr('au-lerr',sbErr(r));btn.disabled=false;btn.textContent='Kirish'}
+async function sbRegister(ev){ev.preventDefault();
+var nm=$('#au-rn').value.trim(),em=$('#au-re').value.trim().toLowerCase(),pw=$('#au-rp').value,pw2=$('#au-rp2').value,btn=$('#au-rbtn');auErr('au-rerr','');
+if(nm.length<2){auErr('au-rerr','Ismingizni kiriting (kamida 2 harf)');return}
+if(!sbEmailOk(em)){auErr('au-rerr','Email manzilini to‘g‘ri kiriting');return}
+if(pw.length<8){auErr('au-rerr','Parol kamida 8 belgidan iborat bo‘lsin');return}
+if(pw!==pw2){auErr('au-rerr','Parollar bir xil emas');return}
+btn.disabled=true;btn.textContent='Yaratilmoqda…';
+var r=await sbFetch('/auth/v1/signup?redirect_to='+encodeURIComponent(location.origin+'/'),{method:'POST',body:{email:em,password:pw,data:{name:nm}}});
+btn.disabled=false;btn.textContent='Ro‘yxatdan o‘tish';
+if(!r.ok){auErr('au-rerr',sbErr(r));return}
+var j=r.j||{};
+if(j.access_token){sbSetSession(j,true);try{localStorage.setItem('sf_seen','1')}catch(e){}location.reload();return}
+var u=j.user||j;
+if(u&&Array.isArray(u.identities)&&u.identities.length===0){auErr('au-rerr','Bu email allaqachon ro‘yxatdan o‘tgan. “Kirish” bo‘limidan foydalaning');return}
+authMode('login');$('#au-le').value=em;auErr('au-linfo','Emailingizga tasdiqlash havolasi yuborildi. Pochtangizni (spam papkasini ham) tekshiring, havolani bosgach tizimga kirasiz.')}
+async function sbForgot(ev){ev.preventDefault();var em=$('#au-fe').value.trim().toLowerCase(),btn=$('#au-fbtn');auErr('au-ferr','');auErr('au-finfo','');
+if(!sbEmailOk(em)){auErr('au-ferr','Email manzilini to‘g‘ri kiriting');return}
+btn.disabled=true;btn.textContent='Yuborilmoqda…';
+var r=await sbFetch('/auth/v1/recover?redirect_to='+encodeURIComponent(location.origin+'/'),{method:'POST',body:{email:em}});
+btn.disabled=false;btn.textContent='Havola yuborish';
+if(!r.ok){auErr('au-ferr',sbErr(r));return}
+auErr('au-finfo','Agar bu email ro‘yxatdan o‘tgan bo‘lsa, parolni yangilash havolasi yuborildi. Pochtangizni (spam papkasini ham) tekshiring.')}
+async function sbReset(ev){ev.preventDefault();var pw=$('#au-xp').value,pw2=$('#au-xp2').value,btn=$('#au-xbtn');auErr('au-xerr','');
+if(pw.length<8){auErr('au-xerr','Parol kamida 8 belgidan iborat bo‘lsin');return}
+if(pw!==pw2){auErr('au-xerr','Parollar bir xil emas');return}
+if(!SB.recovery){auErr('au-xerr','Havola eskirgan. Parolni tiklashni qaytadan boshlang');return}
+btn.disabled=true;btn.textContent='Saqlanmoqda…';
+var r=await sbFetch('/auth/v1/user',{method:'PUT',body:{password:pw}},SB.recovery.access_token);
+if(r.ok&&r.j&&r.j.id){sbSetSession({access_token:SB.recovery.access_token,refresh_token:SB.recovery.refresh_token,expires_in:3600,user:r.j},true);try{localStorage.setItem('sf_seen','1')}catch(e){}location.reload();return}
+auErr('au-xerr',sbErr(r));btn.disabled=false;btn.textContent='Parolni saqlash'}
+async function authLogout(){
+if(SB.on){try{
+if(SY.dirty)await Promise.race([sbPush(true),new Promise(function(r){setTimeout(r,3000)})]);
+var tok=SB.ses&&SB.ses.access_token;
+if(tok)await Promise.race([sbFetch('/auth/v1/logout',{method:'POST'},tok),new Promise(function(r){setTimeout(r,2500)})])}catch(e){}
+if(!SY.dirty){try{localStorage.removeItem(K)}catch(e){}}
+try{localStorage.removeItem(SBK);sessionStorage.removeItem(SBK)}catch(e){}
+}else{try{localStorage.removeItem(AUK.s);sessionStorage.removeItem(AUK.s)}catch(e){}}
+location.reload()}
+document.addEventListener('visibilitychange',function(){if(document.hidden&&SY.dirty)sbPush(true)});
+window.addEventListener('online',function(){if(SY.dirty)sbPush()});
+if(AU.user&&SB.on)sbPull();
 function applyNav(){var m=!!S.navMin;$('.app').classList.toggle('min',m);var b=$('.tgl');if(b){b.setAttribute('aria-expanded',String(!m));b.setAttribute('aria-label',m?'Menyuni ochish':'Menyuni yig‘ish');b.title=m?'Menyuni ochish':'Menyuni yig‘ish'}}
 function render(){
-$('#nav').innerHTML='<div class="top"><div class="logo"><img src="/logo-mark.png" alt="" width="32" height="32" onerror="this.remove()"><span class="lt">Study<b>Flow</b></span></div><button class="x tgl" data-a="toggleNav"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h2.5v16H7a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z" fill="currentColor" stroke="none" opacity=".2"/><rect x="3" y="4" width="18" height="16" rx="4"/><path d="M9.5 4v16"/><path class="chev" d="M16 9.5l-2.5 2.5 2.5 2.5"/></svg></button></div><button class="nav qkbtn" data-a="qaOpen" title="Tezkor amallar"><span aria-hidden="true">🔎</span><span class="lb">Tezkor amallar</span><kbd>'+KEY+'</kbd></button>'+NAV.map(function(n){return'<button class="nav '+(tab===n[0]?'on':'')+'" data-tab="'+n[0]+'" title="'+n[2]+'"><span aria-hidden="true">'+n[1]+'</span><span class="lb">'+n[2]+'</span></button>'}).join('');
+$('#nav').innerHTML='<div class="top"><div class="logo"><img src="/logo-mark.png" alt="" width="32" height="32" onerror="this.remove()"><span class="lt">Study<b>Flow</b></span></div><button class="x tgl" data-a="toggleNav"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h2.5v16H7a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z" fill="currentColor" stroke="none" opacity=".2"/><rect x="3" y="4" width="18" height="16" rx="4"/><path d="M9.5 4v16"/><path class="chev" d="M16 9.5l-2.5 2.5 2.5 2.5"/></svg></button></div><button class="nav qkbtn" data-a="qaOpen" title="Tezkor amallar"><span aria-hidden="true">🔎</span><span class="lb">Tezkor amallar</span><kbd>'+KEY+'</kbd></button>'+NAV.map(function(n){return'<button class="nav '+(tab===n[0]?'on':'')+'" data-tab="'+n[0]+'" title="'+n[2]+'"><span aria-hidden="true">'+n[1]+'</span><span class="lb">'+n[2]+'</span></button>'}).join('')+meHtml();
 $('#view').innerHTML=V[tab]();
 if(tab==='timer'){var s=$('#tm-sub');if(s)s.value=T.sid;paint()}applyNav()}
 render();

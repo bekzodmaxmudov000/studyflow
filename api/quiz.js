@@ -1,7 +1,9 @@
 // Vercel serverless function: StudyFlow -> Gemini (Google AI Studio)
 // API kalit faqat serverda (GEMINI_API_KEY) saqlanadi, brauzerga chiqmaydi.
 
-const MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+const { requireUser } = require('../lib/auth');
+
+const MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
 
 const SCHEMA = {
   type: 'OBJECT',
@@ -37,11 +39,14 @@ function buildPrompt(text, count, diff) {
 }
 
 module.exports = async (req, res) => {
-  if (req.method === 'GET') return res.status(200).json({ ok: true, model: MODEL, hasKey: !!process.env.GEMINI_API_KEY });
+  if (req.method === 'GET') return res.status(200).json({ ok: true, model: MODEL, hasKey: !!process.env.GEMINI_API_KEY, auth: !!process.env.SUPABASE_URL });
   if (req.method !== 'POST') return res.status(405).json({ error: 'method_not_allowed' });
 
   const key = process.env.GEMINI_API_KEY;
   if (!key) return res.status(500).json({ error: 'missing_api_key', detail: 'GEMINI_API_KEY topilmadi' });
+
+  const au = await requireUser(req, res);
+  if (!au) return;
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
