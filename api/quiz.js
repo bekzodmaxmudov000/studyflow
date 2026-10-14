@@ -1,7 +1,7 @@
 // Vercel serverless function: StudyFlow -> Gemini (Google AI Studio)
 // API kalit faqat serverda (GEMINI_API_KEY) saqlanadi, brauzerga chiqmaydi.
 
-const { requireUser } = require('../lib/auth');
+const { requireUser } = require('../auth');
 
 const MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
 
