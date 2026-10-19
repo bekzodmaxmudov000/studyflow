@@ -285,6 +285,67 @@ textarea{width:100%;min-height:170px;resize:vertical;background:var(--bg);border
 .cp-run{display:flex;align-items:center;gap:10px;color:var(--mute);padding:20px 4px}
 .spin.sm{width:20px;height:20px;border-width:3px;margin:0}
 @media (max-width:900px){.cp-grid{grid-template-columns:1fr}.ed{height:340px}.cp-out{max-height:none}}
+.xpb{display:flex;align-items:center;gap:16px;width:100%;text-align:left;cursor:pointer;margin-bottom:22px;padding:16px 20px;background:linear-gradient(135deg,rgba(53,82,224,.10),rgba(26,134,255,.05)),var(--card);border:1px solid var(--line);border-radius:16px;color:var(--ink)}
+.xpb:hover{border-color:var(--acc)}
+.lvb{flex:none;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#1a86ff,#6a5cff);color:#fff;display:grid;place-items:center;font-weight:800;font-size:22px;box-shadow:0 4px 14px rgba(53,82,224,.35)}
+.xpm{flex:1;min-width:0;display:block}
+.xpt{display:flex;justify-content:space-between;gap:10px;font-weight:700;margin-bottom:7px;flex-wrap:wrap}
+.xpt small{color:var(--mute);font-weight:500;font-size:13px}
+.xbar{display:block;height:10px;background:var(--line);border-radius:99px;overflow:hidden}
+.xbar i{display:block;height:100%;background:linear-gradient(90deg,#1a86ff,#6a5cff);border-radius:99px;transition:width .5s}
+.xps{flex:none;text-align:center;padding-left:16px;border-left:1px solid var(--line)}
+.xps b{display:block;font-size:22px;line-height:1.15}
+.xps small{color:var(--mute);font-size:12.5px}
+.mbar{display:block;height:4px;border-radius:9px;background:var(--line);margin-top:5px;overflow:hidden}
+.mbar em{display:block;height:100%;background:linear-gradient(90deg,#1a86ff,#6a5cff)}
+.hero{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.ring2{position:relative;width:132px;height:132px;flex:none}
+.ring2 svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring2 circle{fill:none;stroke-width:9;stroke-linecap:round}
+.ring2 .t{stroke:var(--line)}.ring2 .p{stroke:url(#xg)}
+.ring2 .c{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.ring2 .c b{display:block;font-size:40px;line-height:1}
+.ring2 .c small{color:var(--mute);font-size:12px}
+.hinfo{flex:1;min-width:220px}
+.htitle{font-size:26px;font-weight:800;letter-spacing:-.02em}
+.hstr{flex:none;text-align:center;padding:12px 18px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}
+.hstr b{display:block;font-size:30px;line-height:1.1}
+.hstr small{color:var(--mute)}
+.heat{display:grid;grid-template-columns:repeat(14,1fr);gap:6px}
+.heat i{aspect-ratio:1;border-radius:7px;background:var(--line);display:block}
+.heat i.h1{background:rgba(53,82,224,.28)}.heat i.h2{background:rgba(53,82,224,.55)}.heat i.h3{background:var(--acc)}
+.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.ach{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--bg);display:grid;gap:6px;align-content:start}
+.ach .ai{font-size:28px;line-height:1.2}
+.ach.lock{opacity:.66}.ach.lock .ai{filter:grayscale(1)}
+.ach.on{background:var(--card);border-color:var(--acc);box-shadow:0 0 0 1px rgba(53,82,224,.25)}
+.ach b{font-size:15px}.ach small{color:var(--mute)}
+.xtag{display:inline-block;font-size:12px;font-weight:700;color:var(--acc);background:rgba(53,82,224,.1);padding:3px 9px;border-radius:99px;justify-self:start}
+.agt{font-size:12px;font-weight:800;letter-spacing:.07em;color:var(--mute);margin:18px 0 8px}
+.agt:first-child{margin-top:4px}
+@media (max-width:800px){.xps{display:none}.heat{gap:4px}.hero{justify-content:center;text-align:center}}
+.qbox{padding:18px 20px}
+.qrow{display:flex;align-items:center;gap:14px;padding:12px 4px;border-bottom:1px solid var(--line)}
+.qrow:last-of-type{border-bottom:0}
+.qic{flex:none;width:40px;height:40px;border-radius:12px;background:var(--bg);display:grid;place-items:center;font-size:20px}
+.qtx{flex:1;min-width:0;display:grid;gap:5px}
+.qtx b{font-size:15px;line-height:1.35;overflow-wrap:anywhere}
+.qtx small{color:var(--mute);font-size:12.5px}
+.xbar.sl{height:6px}
+.qxp{flex:none;font-weight:800;font-size:13px;color:var(--acc);background:rgba(53,82,224,.1);padding:4px 10px;border-radius:99px;white-space:nowrap}
+.qok{flex:none;width:30px;height:30px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-weight:800}
+.qrow.done .qic{background:rgba(20,147,95,.14)}
+.qrow.done .qtx b{color:var(--mute);text-decoration:line-through}
+.qrow.done .xbar i{background:var(--ok)}
+.qfoot{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--bg);color:var(--mute);font-size:14px}
+.qhist{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.qh{border:1px solid var(--line);border-radius:12px;padding:8px 4px;text-align:center;background:var(--bg)}
+.qh small{display:block;color:var(--mute);font-size:12px}
+.qh b{font-size:15px}
+.qh.part{border-color:var(--acc)}
+.qh.full{background:var(--acc);border-color:var(--acc);color:var(--acc-ink)}
+.qh.full small{color:inherit;opacity:.85}
+@media (max-width:800px){.qrow{flex-wrap:wrap}.qtx{flex-basis:calc(100% - 60px)}.qxp{margin-left:54px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -372,16 +433,44 @@ var s=auGet(AUK.s)||auGet(AUK.s,sessionStorage),us=auGet(AUK.u)||[];AU.user=s&&s
 })();
 document.documentElement.classList.toggle('noauth',!AU.user);
 var K=AU.user?'studyflow_v1_'+AU.user.id:'studyflow_v1_guest',S=blank();
+var XPCAP={t:150,s:480,q:150};
+var LVN=['Boshlovchi','Izlanuvchi','Intiluvchi','Mehnatsevar','Intizomli','Mohir','Bilimdon','Ustoz','Daho','Afsona'];
+var ACH=[
+{id:'s3',g:'Ketma-ketlik (streak)',n:'Boshlanish',d:'3 kun ketma-ket faol bo‘ling',xp:30,ic:'🔥',m:'streak',v:3},
+{id:'s7',g:'Ketma-ketlik (streak)',n:'Haftalik jangchi',d:'7 kun ketma-ket faol bo‘ling',xp:100,ic:'🔥',m:'streak',v:7},
+{id:'s14',g:'Ketma-ketlik (streak)',n:'Ikki hafta temir intizom',d:'14 kun ketma-ket faol bo‘ling',xp:200,ic:'🔥',m:'streak',v:14},
+{id:'s30',g:'Ketma-ketlik (streak)',n:'Oylik chempion',d:'30 kun ketma-ket faol bo‘ling',xp:500,ic:'👑',m:'streak',v:30},
+{id:'t1',g:'Vazifalar',n:'Birinchi qadam',d:'Birinchi vazifani bajaring',xp:20,ic:'✅',m:'tasks',v:1},
+{id:'t10',g:'Vazifalar',n:'O‘nlik',d:'10 ta vazifani bajaring',xp:50,ic:'✅',m:'tasks',v:10},
+{id:'t50',g:'Vazifalar',n:'Vazifa ustasi',d:'50 ta vazifani bajaring',xp:150,ic:'🏅',m:'tasks',v:50},
+{id:'t100',g:'Vazifalar',n:'Yuzlik',d:'100 ta vazifani bajaring',xp:300,ic:'🏆',m:'tasks',v:100},
+{id:'f60',g:'Diqqat',n:'Birinchi soat',d:'Jami 1 soat fokus bilan o‘qing',xp:30,ic:'⏱️',m:'focus',v:60},
+{id:'f600',g:'Diqqat',n:'Chuqur diqqat',d:'Jami 10 soat fokus bilan o‘qing',xp:100,ic:'🧠',m:'focus',v:600},
+{id:'f3000',g:'Diqqat',n:'Marafonchi',d:'Jami 50 soat fokus bilan o‘qing',xp:300,ic:'🏃',m:'focus',v:3000},
+{id:'fs45',g:'Diqqat',n:'Uzluksiz diqqat',d:'Bitta seansda 45 daqiqa o‘qing',xp:40,ic:'🎧',m:'maxses',v:45},
+{id:'q1',g:'Testlar',n:'Sinovchi',d:'Birinchi testni yeching',xp:20,ic:'🧪',m:'quizzes',v:1},
+{id:'q5',g:'Testlar',n:'Test ishqibozi',d:'5 ta testni yeching',xp:60,ic:'📝',m:'quizzes',v:5},
+{id:'qa',g:'Testlar',n:'A’lochi',d:'5+ savolli testda kamida 80% to‘plang',xp:50,ic:'⭐',m:'good',v:1},
+{id:'qp',g:'Testlar',n:'Mukammal natija',d:'5+ savolli testda 100% to‘plang',xp:80,ic:'💯',m:'perfect',v:1},
+{id:'g1',g:'Maqsadlar',n:'Maqsadga erishdim',d:'Bir kunda kunlik o‘qish maqsadingizni bajaring',xp:50,ic:'🎯',m:'goal',v:1},
+{id:'g5',g:'Maqsadlar',n:'Maqsadli hafta',d:'Kunlik maqsadingizni 5 marta bajaring',xp:150,ic:'🎯',m:'goal',v:5},
+{id:'z1',g:'Missiyalar',n:'Birinchi missiya',d:'Birinchi kunlik missiyani bajaring',xp:20,ic:'🎯',m:'questsDone',v:1},
+{id:'z10',g:'Missiyalar',n:'Missiyachi',d:'Jami 10 ta kunlik missiyani bajaring',xp:60,ic:'🎖️',m:'questsDone',v:10},
+{id:'za1',g:'Missiyalar',n:'Kun qahramoni',d:'Bir kunda barcha missiyalarni bajaring',xp:80,ic:'🌟',m:'allDays',v:1},
+{id:'za3',g:'Missiyalar',n:'Uch kunlik qahramon',d:'3 kun barcha missiyalarni bajaring',xp:150,ic:'🌟',m:'allDays',v:3},
+{id:'za7',g:'Missiyalar',n:'Missiyalar chempioni',d:'7 kun barcha missiyalarni bajaring',xp:300,ic:'👑',m:'allDays',v:7},
+{id:'e1',g:'Maqsadlar',n:'Imtihonga tayyor',d:'Imtihondan oldingi 3 haftada shu fanga kamida 5 soat fokus',xp:100,ic:'🎓',m:'examprep',v:1}
+];
 function blank(){return{subjects:[],tasks:[],exams:[],sessions:[],focus:25,daily:120,sched:[],chat:[],chats:[],chatId:null}}
 try{var r=localStorage.getItem(K);if(r)S=Object.assign(blank(),JSON.parse(r))}catch(e){}
 if(AU.user&&!S.name)S.name=AU.user.name;
-function save(){if(!AU.user)return;S.__ts=Date.now();try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}if(SB.on)sbPushSoon()}
+function save(){if(!AU.user)return;try{xpSync()}catch(e){console.error('xp',e)}S.__ts=Date.now();try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}if(SB.on)sbPushSoon()}
 var $=function(s){return document.querySelector(s)};
 var uid=function(){return Math.random().toString(36).slice(2,9)};
 var esc=function(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
 var COL=['#3552e0','#e0457b','#f08c00','#12a37a','#0ba5c7','#e03131','#845ef7','#74b816'];
 var DAYS=['Yak','Dush','Sesh','Chor','Pay','Jum','Shan'];
-var NAV=[['home','🏠','Bosh sahifa'],['sched','🗓️','Dars jadvali'],['tasks','✅','Vazifalar'],['subjects','📚','Fanlar'],['plan','🧠','Aqlli reja'],['chat','💬','AI yordamchi'],['quiz','🧪','AI Test'],['compiler','💻','Kompilyator'],['timer','⏱️','Fokus taymeri'],['exams','🎯','Imtihonlar'],['settings','⚙️','Sozlamalar']];
+var NAV=[['home','🏠','Bosh sahifa'],['sched','🗓️','Dars jadvali'],['tasks','✅','Vazifalar'],['subjects','📚','Fanlar'],['plan','🧠','Aqlli reja'],['chat','💬','AI yordamchi'],['quiz','🧪','AI Test'],['compiler','💻','Kompilyator'],['timer','⏱️','Fokus taymeri'],['exams','🎯','Imtihonlar'],['progress','🏆','Yutuqlar'],['settings','⚙️','Sozlamalar']];
 var tab='home',filter='all',pick=COL[0],schDay=new Date().getDay(),viewDay=new Date().getDay();
 function ymd(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
 function diff(s){var a=new Date(s+'T00:00:00'),b=new Date(ymd(new Date())+'T00:00:00');return Math.round((a-b)/864e5)}
@@ -391,7 +480,6 @@ function dueLbl(d){if(!d)return'';var n=diff(d);return n<0?'Muddati o‘tgan':n=
 function subOpts(none){return'<option value="">'+none+'</option>'+S.subjects.map(function(s){return'<option value="'+s.id+'">'+esc(s.name)+'</option>'}).join('')}
 function subTag(id){var s=sub(id);return s?'<span class="tag"><i class="dot" style="background:'+s.c+'"></i> '+esc(s.name)+'</span>':''}
 function mins(f){return S.sessions.filter(f).reduce(function(a,s){return a+s.min},0)}
-function streak(){var days={};S.sessions.forEach(function(s){days[s.date]=1});S.tasks.forEach(function(t){if(t.doneAt)days[t.doneAt]=1});var d=new Date(),n=0;if(!days[ymd(d)])d.setDate(d.getDate()-1);while(days[ymd(d)]){n++;d.setDate(d.getDate()-1)}return n}
 function empty(a,b){return'<div class="empty"><b>'+a+'</b>'+b+'</div>'}
 
 function plan(){
@@ -414,6 +502,26 @@ function classesBox(){if(!S.sched.length)return'';var l=dayClasses(new Date().ge
 function planBox(){var p=plan();if(!p.n)return'';var x=p.days[0];
 return'<div class="box"><h2>Bugungi reja</h2>'+(x.list.length?x.list.map(function(y){return'<div class="item"><div class="t"><div>'+esc(y.it.title)+'</div><small>'+fmt(y.give)+'</small></div>'+subTag(y.it.sid)+'</div>'}).join(''):'<div class="empty" style="padding:14px">Bugun uchun ish yo‘q yoki kunlik normangiz bajarilgan.</div>')+(p.short.length?'<p class="late" style="margin:10px 0 0">'+p.short.length+' ta ishga muddatgacha vaqt yetmayapti.</p>':'')+'<div class="row" style="margin-top:12px"><button class="btn ghost sm" data-a="goPlan">To‘liq reja</button></div></div>'}
 var V={
+progress:function(){var i=xpInfo(),st=xpStreak(),m=xpMetrics(),X=S.xp||{ach:{}},td=ymd(new Date()),done=0;
+ACH.forEach(function(a){if(X.ach[a.id])done++});
+var circ=2*Math.PI*54,off=(circ*(1-i.pct/100)).toFixed(1);
+var perDay={};xpLog().forEach(function(e){if(e.d)perDay[e.d]=(perDay[e.d]||0)+e.x});
+var heat='';for(var k=13;k>=0;k--){var d=new Date();d.setDate(d.getDate()-k);var key=ymd(d),x=perDay[key]||0,act=st.days[key];
+heat+='<i class="'+(x>=100?'h3':x>=40?'h2':(x>0||act)?'h1':'')+'" title="'+key.split('-').reverse().join('.')+': '+x+' XP"></i>'}
+var groups=[],gm={};ACH.forEach(function(a){if(!gm[a.g]){gm[a.g]=[];groups.push(a.g)}gm[a.g].push(a)});
+var ag=groups.map(function(g){return'<div class="agt">'+g.toUpperCase()+'</div><div class="agrid">'+gm[g].map(function(a){var on=X.ach[a.id],v=Math.min(a.v,Math.floor(m[a.m]||0)),pc=Math.round(v/a.v*100);
+return'<div class="ach '+(on?'on':'lock')+'"><span class="ai">'+a.ic+'</span><b>'+a.n+'</b><small>'+a.d+'</small>'+(on?'<span class="xtag">+'+a.xp+' XP · '+(X.ach[a.id]==='old'?'avvalroq ochilgan':X.ach[a.id].split('-').reverse().join('.'))+'</span>':'<div class="xbar" style="height:6px"><i style="width:'+pc+'%"></i></div><small>'+v+' / '+a.v+' · mukofot +'+a.xp+' XP</small>')+'</div>'}).join('')+'</div>'}).join('');
+var rec=xpLog().filter(function(e){return e.t!=='a'||true}).slice(-8).reverse().map(function(e){return'<div class="item"><div class="t"><div>'+esc(e.l||'')+'</div><small>'+({t:'Vazifa',s:'Fokus',q:'Test',a:'Yutuq',z:'Missiya'}[e.t]||'')+(e.d?' · '+e.d.split('-').reverse().join('.'):'')+'</small></div><b class="'+(e.x>0?'ok':'')+'">'+(e.x>0?'+':'')+e.x+' XP</b></div>'}).join('');
+return'<h1>Yutuqlar</h1><p class="sub">Haqiqiy bajargan ishlaringiz uchun XP, daraja va nishonlar.</p>'+
+'<div class="box hero"><div class="ring2"><svg viewBox="0 0 132 132"><defs><linearGradient id="xg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a86ff"/><stop offset="1" stop-color="#6a5cff"/></linearGradient></defs><circle class="t" cx="66" cy="66" r="54"/><circle class="p" cx="66" cy="66" r="54" stroke-dasharray="'+circ.toFixed(1)+'" stroke-dashoffset="'+off+'"/></svg><div class="c"><div><b>'+i.level+'</b><small>daraja</small></div></div></div>'+
+'<div class="hinfo"><div class="htitle">'+i.title+'</div><div style="color:var(--mute);margin:2px 0 10px">Jami <b style="color:var(--ink)">'+i.total+' XP</b>'+(i.today?' · bugun <b style="color:var(--ok)">+'+i.today+'</b>':'')+'</div><div class="xbar" style="height:12px"><i style="width:'+i.pct+'%"></i></div><small style="color:var(--mute)">Keyingi darajagacha '+(i.next-i.total)+' XP</small></div>'+
+'<div class="hstr"><b>🔥 '+st.cur+'</b><small>kun ketma-ket</small><br><small>Eng yaxshisi: '+st.best+'</small></div></div>'+
+(st.cur>0&&!st.days[td]?'<div class="warn" style="margin-bottom:14px">Bugun hali faol bo‘lmadingiz. Vazifa bajaring, 10 daqiqa fokus bilan o‘qing yoki test yeching, shunda ' +st.cur+' kunlik ketma-ketligingiz uzilmaydi.</div>':'')+
+'<div class="stats"><div class="stat"><b>'+m.tasks+'</b><small>bajarilgan vazifalar</small></div><div class="stat"><b>'+fmt(m.focus)+'</b><small>fokus bilan o‘qilgan vaqt</small></div><div class="stat"><b>'+m.quizzes+'</b><small>yechilgan testlar</small></div><div class="stat"><b>'+done+' / '+ACH.length+'</b><small>ochilgan yutuqlar</small></div></div>'+
+qsBox()+qsHistBox()+'<div class="box"><h2>So‘nggi 14 kun</h2><div class="heat">'+heat+'</div><small style="display:block;margin-top:8px;color:var(--mute)">To‘q rang = ko‘proq XP. Faol kun: vazifa, kamida 10 daqiqa fokus yoki test.</small></div>'+
+'<div class="box"><h2>Nishonlar</h2>'+ag+'</div>'+
+'<div class="box"><h2>XP qanday hisoblanadi?</h2><div style="color:var(--mute);line-height:1.65"><b style="color:var(--ink)">Faqat haqiqiy ishlar uchun.</b> Hech narsa tugma bosganingiz uchun berilmaydi.<ul style="margin:8px 0 0;padding-left:20px"><li><b>Vazifa:</b> bajarildi deb belgilansa 12–34 XP (taxminiy vaqt va muhimlikka qarab), kuniga 150 XP gacha. Belgini olib tashlasangiz, XP qaytariladi. Bajarilgan vazifani o‘chirsangiz, XP saqlanadi.</li><li><b>Fokus:</b> taymerda haqiqatan o‘tgan vaqt, 1 daqiqa = 1 XP, kuniga 480 XP gacha.</li><li><b>Test:</b> har to‘g‘ri javob 4 XP, 5+ savolli testda +20, 80% dan yuqori bo‘lsa yana +30, kuniga 150 XP gacha. Shu testni qayta yechsangiz, XP 30% bo‘ladi.</li><li><b>Kunlik missiyalar:</b> har kuni 3–5 ta (vazifa, Pomodoro, test va hokazo). Progress faqat haqiqiy ishlardan hisoblanadi: vazifa belgisini olib tashlasangiz, shu missiyaning XP si ham qaytariladi. Hammasi bajarilsa +50 XP bonus va «Kun qahramoni» nishoni.</li><li><b>Yutuqlar:</b> har biri bir marta ochiladi va bonus XP beradi.</li><li><b>Ketma-ket kun:</b> shu kuni vazifa bajarilgan, kamida 10 daqiqa fokus yoki test yechilgan bo‘lsa hisoblanadi.</li></ul></div></div>'+
+'<div class="box"><h2>So‘nggi XP yozuvlari</h2>'+(rec||empty('Hali XP yo‘q','Vazifa bajaring yoki taymerni ishga tushiring.'))+'</div>'},
 compiler:function(){
 return'<h1>Kompilyator</h1><p class="sub">C++ kodini yozing va bir zumda ishga tushiring. Natija shu yerning o‘zida chiqadi.</p>'+
 '<div class="box cp-box"><div class="cp-bar"><span class="tag">C++ (GCC)</span>'+
@@ -483,7 +591,7 @@ for(var i=6;i>=0;i--){var d=new Date();d.setDate(d.getDate()-i);var k=ymd(d),m=m
 vals.forEach(function(v){bars+='<div class="'+(v[1]?'':'z')+'"><i style="height:'+Math.max(4,v[1]/mx*100)+'%" title="'+fmt(v[1])+'"></i>'+v[0]+'</div>'});
 var ex=S.exams.filter(function(e){return diff(e.date)>=0}).sort(function(a,b){return a.date<b.date?-1:1})[0];
 var next=open.slice().sort(function(a,b){return(a.due||'9')<(b.due||'9')?-1:1}).slice(0,5);
-return'<h1>'+g+(S.name?', '+esc(S.name):'')+'!</h1><p class="sub">Bugungi o‘qish rejangiz shu yerda.</p>'+
+return'<h1>'+g+(S.name?', '+esc(S.name):'')+'!</h1><p class="sub">Bugungi o‘qish rejangiz shu yerda.</p>'+xpBox()+qsBox()+
 '<div class="stats"><div class="stat"><b>'+dueNow+'</b><small>bugungi va muddati o‘tgan vazifalar</small></div>'+
 '<div class="stat"><b>'+(wk?fmt(wk):'0 daq')+'</b><small>so‘nggi 7 kunda o‘qilgan vaqt</small></div>'+
 '<div class="stat"><b>'+(ex?(diff(ex.date)===0?'Bugun':diff(ex.date)+' kun'):'—')+'</b><small>'+(ex?esc(ex.name)+' imtihonigacha':'imtihon qo‘shilmagan')+'</small></div>'+
@@ -568,15 +676,15 @@ why=e&&e.code==='not_granted'?'AI ruxsati berilmadi, demo rejimga o‘tildi.':e&
 if(!qs){qs=qzLocal(text);
 if(!qs){Q.stage='input';Q.msg=(why?why+' ':'')+'Demo rejimda test tuzish uchun kamida 3–4 gapli konspekt kerak. Mavzu nomi bo‘yicha test tuzish uchun AI kerak.';render();return}
 if(why)toast(why)}
-Q.qs=qs;Q.src=src;Q.why=src==='ai'?'':why;Q.title=title;Q.ans=[];Q.cur=0;Q.saved=false;Q.stage='taking';render();window.scrollTo(0,0)},
+Q.gid=uid();Q.att=1;Q.qs=qs;Q.src=src;Q.why=src==='ai'?'':why;Q.title=title;Q.ans=[];Q.cur=0;Q.saved=false;Q.stage='taking';render();window.scrollTo(0,0)},
 qzPick:function(i){Q.ans[Q.cur]=+i;var y=window.scrollY;render();window.scrollTo(0,y)},
 qzNext:function(){if(Q.cur<Q.qs.length-1){Q.cur++;render();window.scrollTo(0,0)}},
 qzPrev:function(){if(Q.cur>0){Q.cur--;render();window.scrollTo(0,0)}},
 qzFinish:function(){Q.stage='result';
-if(!Q.saved){Q.saved=true;var r=0;Q.qs.forEach(function(q,i){if(Q.ans[i]===q.answer)r++});S.quizHist=(S.quizHist||[]).concat([{title:Q.title,date:ymd(new Date()),score:r,total:Q.qs.length}]).slice(-20);save()}
+if(!Q.saved){Q.saved=true;var r=0,an=0;Q.qs.forEach(function(q,i){if(Q.ans[i]!==undefined)an++;if(Q.ans[i]===q.answer)r++});S.quizHist=(S.quizHist||[]).concat([{id:uid(),gid:Q.gid||'',att:Q.att||1,title:Q.title,date:ymd(new Date()),score:r,total:Q.qs.length,ans:an}]).slice(-20);save()}
 render();window.scrollTo(0,0)},
-qzRetry:function(){Q.ans=[];Q.cur=0;Q.saved=false;Q.stage='taking';render();window.scrollTo(0,0)},
-qzRetryWrong:function(){Q.qs=Q.qs.filter(function(q,i){return Q.ans[i]!==q.answer});Q.title=Q.title.replace(/ \(xatolar\)$/,'')+' (xatolar)';Q.ans=[];Q.cur=0;Q.saved=false;Q.stage='taking';render();window.scrollTo(0,0)},
+qzRetry:function(){Q.att=(Q.att||1)+1;Q.ans=[];Q.cur=0;Q.saved=false;Q.stage='taking';render();window.scrollTo(0,0)},
+qzRetryWrong:function(){Q.att=(Q.att||1)+1;Q.qs=Q.qs.filter(function(q,i){return Q.ans[i]!==q.answer});Q.title=Q.title.replace(/ \(xatolar\)$/,'')+' (xatolar)';Q.ans=[];Q.cur=0;Q.saved=false;Q.stage='taking';render();window.scrollTo(0,0)},
 qzNew:function(){Q.stage='input';Q.msg='';render();window.scrollTo(0,0)},
 qzToTasks:function(){var seen={},c=0;Q.qs.forEach(function(q,i){if(Q.ans[i]===q.answer)return;var t=q.topic||'Umumiy';if(seen[t])return;seen[t]=1;var title='Takrorlash: '+t;if(S.tasks.some(function(x){return x.title===title&&!x.done}))return;S.tasks.push({id:uid(),title:title,sid:'',due:'',pr:3,est:30,done:false});c++});save();toast(c?c+' ta vazifa qo‘shildi':'Bu vazifalar allaqachon bor')},
 setName:function(){S.name=$('#st-name').value.trim().slice(0,30);save();toast('Ism saqlandi');render()},
@@ -661,6 +769,8 @@ if(!CP.arm){CP.arm=true;render();setTimeout(function(){if(CP.arm){CP.arm=false;i
 CP.arm=false;var ta=$('#ed'),si=$('#cp-in');CP.prev={code:ta?ta.value:S.cmpCode,stdin:si?si.value:S.cmpStdin};
 S.cmpCode=TPL;S.cmpStdin='';save();CP.res=null;render()},
 cmpDownload:function(){var ta=$('#ed'),u=URL.createObjectURL(new Blob([ta?ta.value:(S.cmpCode||TPL)],{type:'text/x-c++src'}));var a=document.createElement('a');a.href=u;a.download='main.cpp';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},1000)},
+qgo:function(t){tab=t;render();window.scrollTo(0,0)},
+goProg:function(){tab='progress';render();window.scrollTo(0,0)},
 goPlan:function(){tab='plan';render();window.scrollTo(0,0)},
 setDaily:function(){var v=parseFloat($('#daily').value);if(v>=0.5&&v<=16){S.daily=Math.round(v*60);save()}render()},
 startPlan:function(sid){if(!T.run)T.sid=sid;tab='timer';render();window.scrollTo(0,0)},
@@ -884,7 +994,7 @@ auSetSession(id,true);location.reload();return
 }catch(e){auErr('au-rerr',e&&e.message==='crypto'?'Brauzeringiz xavfsiz rejimda emas (sayt HTTPS orqali ochilishi kerak)':'Hisob yaratib bo‘lmadi. Brauzer xotirasi yoqilganini tekshiring')}
 btn.disabled=false;btn.textContent='Ro‘yxatdan o‘tish'}
 function meHtml(){if(!AU.user)return'';var nm=S.name||AU.user.name;
-return'<div class="me"><span class="av">'+esc(nm.trim().charAt(0).toUpperCase()||'?')+'</span><span class="lb mn"><b>'+esc(nm)+'</b><small>'+esc(AU.user.email)+'</small></span><button class="x" data-a="logout" title="Chiqish" aria-label="Chiqish">'+ICO_OUT+'</button></div>'}
+return'<div class="me"><span class="av">'+esc(nm.trim().charAt(0).toUpperCase()||'?')+'</span><span class="lb mn"><b>'+esc(nm)+'</b><small>'+meLevel()+'</small><span class="mbar"><em style="width:'+xpInfo().pct+'%"></em></span></span><button class="x" data-a="logout" title="Chiqish" aria-label="Chiqish">'+ICO_OUT+'</button></div>'}
 function accountBox(){if(!AU.user)return'';var nm=S.name||AU.user.name;
 return'<div class="box"><h2>Hisob</h2><div class="row" style="align-items:center;gap:14px"><span class="av big">'+esc(nm.trim().charAt(0).toUpperCase()||'?')+'</span><div style="flex:1;min-width:0"><b>'+esc(nm)+'</b><br><small style="color:var(--mute)">'+esc(AU.user.email)+'</small></div><button class="btn ghost" data-a="logout">Chiqish</button></div>'+(SB.on?'<small id="sy-st" style="display:block;margin-top:12px;color:var(--mute)">'+syText()+'</small>':'<small style="display:block;margin-top:12px;color:var(--mute)">Hisob va barcha yozuvlar shu brauzerda saqlanadi (demo kirish).</small>')+'</div>'}
 $('#au-login').addEventListener('submit',SB.on?sbLogin:authLogin);$('#au-reg').addEventListener('submit',SB.on?sbRegister:authRegister);$('#au-forgot').addEventListener('submit',sbForgot);$('#au-reset').addEventListener('submit',sbReset);
@@ -936,7 +1046,7 @@ SY.busy=false;syUi();
 if(SY.err){clearTimeout(SY.timer);SY.timer=setTimeout(function(){sbPush()},15000)}else if(SY.dirty)sbPushSoon()}
 function applyAll(){['subjects','tasks','exams','sessions','sched','chat','chats'].forEach(function(k){if(!Array.isArray(S[k]))S[k]=[]});
 if(!S.name&&AU.user)S.name=AU.user.name;
-if(!T.run){T.total=T.left=(S.focus||25)*60}Q.count=S.qCount||5;Q.diff=S.qDiff||'O‘rta';applyTheme()}
+if(!T.run){T.total=T.left=(S.focus||25)*60}Q.count=S.qCount||5;Q.diff=S.qDiff||'O‘rta';applyTheme();try{xpSync(true)}catch(e){console.error('xp',e)}}
 async function sbPull(){if(!(SB.on&&AU.user&&SB.ses))return;
 try{var tok=await sbToken();if(!tok)return;
 var r=await sbFetch('/rest/v1/user_data?select=data,updated_at&user_id=eq.'+AU.user.id,{},tok);if(!r.ok)throw new Error(String(r.status));
@@ -996,7 +1106,7 @@ location.reload()}
 document.addEventListener('visibilitychange',function(){if(document.hidden&&SY.dirty)sbPush(true)});
 window.addEventListener('online',function(){if(SY.dirty)sbPush()});
 if(AU.user&&SB.on)sbPull();
-var NAVG=[['ASOSIY',['home','sched','tasks','subjects']],['SMART STUDY',['plan','chat','quiz','compiler','timer']],['MAQSADLAR',['exams']]];
+var NAVG=[['ASOSIY',['home','sched','tasks','subjects']],['SMART STUDY',['plan','chat','quiz','compiler','timer']],['MAQSADLAR',['exams','progress']]];
 var NI={
 home:'<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/>',
 sched:'<rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 10h18M8 2.5v4M16 2.5v4"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17.5h.01M12 17.5h.01"/>',
@@ -1007,6 +1117,7 @@ chat:'<rect x="4" y="8.5" width="16" height="11.5" rx="3.5"/><path d="M12 4.7v3.
 quiz:'<rect x="5" y="4.5" width="14" height="17" rx="2.5"/><rect x="8.5" y="2.5" width="7" height="4" rx="1.2"/><path d="m9.2 14 2.1 2.1 3.8-4"/>',
 timer:'<circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 1.5"/><path d="M9.5 2.5h5M12 2.5v3.5"/>',
 compiler:'<path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',
+progress:'<path d="M8 21h8M12 16.5V21"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5.5h3V8a3.2 3.2 0 0 1-3 3.2M7 5.5H4V8a3.2 3.2 0 0 0 3 3.2"/>',
 exams:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.4"/>',
 settings:'<path d="M4 6.5h9M17 6.5h3M4 12h3M11 12h9M4 17.5h11M19 17.5h1"/><circle cx="15" cy="6.5" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="17.5" r="2"/>'};
 function niSvg(id){return'<svg class="ni" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(NI[id]||'')+'</svg>'}
@@ -1080,11 +1191,145 @@ ta.addEventListener('scroll',cmScroll);ta.addEventListener('keydown',cmKey);
 if(si)si.addEventListener('input',function(){S.cmpStdin=si.value;cmSaveSoon()});
 var u=$('#cp-undo');if(u)u.hidden=!CP.prev;
 cmSync();cmOut();cmBtn();cmHealth()}
+/* ===== XP, darajalar va yutuqlar =====
+   XP "tugma bosilgani" uchun emas, tekshiriladigan haqiqiy ishlar uchun beriladi:
+   bajarilgan vazifa, taymerda o'tgan vaqt, yechilgan test. Har bir saqlashda xpSync()
+   ma'lumotlarni tekshirib, XP daftariga (S.xp.log) faqat yangi ishlarni yozadi. */
+/* ===== Kunlik missiyalar =====
+   Har kuni 3-5 ta missiya. Progress tugma bosishdan emas, haqiqiy ishlardan
+   (bajarilgan vazifalar, taymerdagi vaqt, yechilgan test) hisoblanadi. */
+var QDEF={tasks:{ic:'✅',tab:'tasks'},pomo:{ic:'⏱️',tab:'timer'},quiz:{ic:'🧪',tab:'quiz'},deadline:{ic:'⏰',tab:'tasks'},exam:{ic:'🎓',tab:'timer'},goal:{ic:'🎯',tab:'timer'}};
+function qsHash(s){var h=7;s=String(s);for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h}
+function qsText(q){switch(q.t){
+case'tasks':return q.n+' ta vazifani bajaring';
+case'pomo':return q.n+' ta Pomodoro tugating (har biri kamida 20 daqiqa)';
+case'quiz':return'1 ta test yeching va kamida 50% to‘plang';
+case'deadline':return'Muddati yaqin vazifani bajaring: «'+q.l+'»';
+case'exam':return q.l+' fanidan '+q.n+' daqiqa fokus bilan o‘qing (imtihonga '+q.k+' kun qoldi)';
+case'goal':return'Kunlik o‘qish maqsadingiz: '+q.n+' daqiqa fokus'}return''}
+function qsShort(q){return{tasks:q.n+' ta vazifa',pomo:q.n+' ta Pomodoro',quiz:'test',deadline:'muddatli vazifa',exam:q.l,goal:'kunlik maqsad'}[q.t]||''}
+function qsGen(td){
+var seed=qsHash(td+(AU.user?AU.user.id:'')),list=[],n=0;
+var add=function(o){o.id='q'+(++n);o.d=td;list.push(o)};
+var open=S.tasks.filter(function(t){return!t.done&&t.id});
+if(open.length){var tn=Math.min(open.length,(seed%3===0&&open.length>=3)?3:2);add({t:'tasks',n:tn,x:10*tn})}
+var pn=Math.max(1,Math.min(3,Math.round((S.daily||120)/60)));add({t:'pomo',n:pn,x:15*pn});
+add({t:'quiz',n:1,x:25});
+var urgent=[],rest=[];
+var dl=open.filter(function(t){return t.due&&diff(t.due)<=1}).sort(function(a,b){return a.due<b.due?-1:1})[0];
+if(dl)urgent.push({t:'deadline',n:1,x:30,tid:dl.id,l:String(dl.title).slice(0,40)});
+var ex=S.exams.filter(function(e){var k=diff(e.date);return e.sid&&sub(e.sid)&&k>=0&&k<=14}).sort(function(a,b){return a.date<b.date?-1:1})[0];
+if(ex)rest.push({t:'exam',n:25,x:30,sid:ex.sid,l:sub(ex.sid).name,k:diff(ex.date)});
+rest.push({t:'goal',n:Math.max(20,Math.min(480,S.daily||120)),x:40});
+rest.sort(function(a,b){return qsHash(td+a.t+seed)-qsHash(td+b.t+seed)});
+var extras=urgent.concat(rest),want=list.length>=3?1+seed%2:1;
+if(list.length+want<3)want=3-list.length;
+want=Math.min(want,5-list.length);
+extras.slice(0,want).forEach(add);
+return list}
+function qsProg(q){var d=q.d,L=xpLog(),v=0;
+switch(q.t){
+case'tasks':L.forEach(function(e){if(e.t==='t'&&e.d===d)v++});break;
+case'pomo':S.sessions.forEach(function(s){if(s.date===d&&(s.min||0)>=20)v++});break;
+case'quiz':L.forEach(function(e){if(e.t==='q'&&e.v!==0&&e.d===d&&(e.a||1)<=1&&(e.r||0)>=50)v++});break;
+case'deadline':L.forEach(function(e){if(e.k==='task:'+q.tid&&e.d===d)v=1});break;
+case'exam':S.sessions.forEach(function(s){if(s.date===d&&s.sid===q.sid)v+=s.min||0});break;
+case'goal':S.sessions.forEach(function(s){if(s.date===d)v+=s.min||0});break}
+return v}
+function qsInfo(){var Z=S.quests||{list:[]},c=0,xp=0,tot=0;
+Z.list.forEach(function(q){tot+=q.x;if(qsProg(q)>=q.n){c++;xp+=q.x}});
+return{c:c,n:Z.list.length,xp:xp,tot:tot,all:Z.list.length>0&&c===Z.list.length}}
+function qsRows(){var Z=S.quests;if(!Z||!Z.list)return'';
+return Z.list.map(function(q){var v=qsProg(q),done=v>=q.n,pc=Math.min(100,Math.round(v/q.n*100)),d=QDEF[q.t],unit=(q.t==='exam'||q.t==='goal')?' daq':'';
+return'<div class="qrow'+(done?' done':'')+'"><span class="qic">'+d.ic+'</span><div class="qtx"><b>'+esc(qsText(q))+'</b><span class="xbar sl"><i style="width:'+pc+'%"></i></span><small>'+Math.min(Math.round(v),q.n)+' / '+q.n+unit+'</small></div><span class="qxp">+'+q.x+' XP</span>'+(done?'<span class="qok" aria-label="Bajarildi">✓</span>':'<button class="chip" data-a="qgo" data-id="'+d.tab+'">Boshlash</button>')+'</div>'}).join('')}
+function qsBox(){var Z=S.quests;if(!Z||!Z.list||!Z.list.length)return'';var i=qsInfo();
+return'<div class="box qbox"><div class="row" style="justify-content:space-between;margin-bottom:6px"><h2 style="margin:0">🎯 Bugungi missiyalar</h2><span class="tag">'+i.c+' / '+i.n+' bajarildi</span></div>'+qsRows()+'<div class="qfoot">'+(i.all?'🌟 Barcha missiyalar bajarildi! Bonus +50 XP olindi.':'Hammasini bajarsangiz: <b>+50 XP</b> bonus va <b>🌟 Kun qahramoni</b> nishoni · jami +'+(i.tot+50)+' XP')+'</div></div>'}
+function qsHistBox(){var h=S.qlog||{},cells='';
+for(var k=6;k>=0;k--){var d=new Date();d.setDate(d.getDate()-k);var key=ymd(d),e;
+if(k===0){var i=qsInfo();e=i.n?{n:i.n,c:i.c,all:i.all}:null}else e=h[key];
+cells+='<div class="qh '+(e?(e.all?'full':e.c?'part':''):'')+'" title="'+key.split('-').reverse().join('.')+'"><small>'+DAYS[d.getDay()]+'</small><b>'+(e?e.c+'/'+e.n:'–')+'</b></div>'}
+return'<div class="box"><h2>Missiyalar tarixi</h2><div class="qhist">'+cells+'</div><small style="display:block;margin-top:8px;color:var(--mute)">To‘q rang: hamma missiya bajarilgan kun.</small></div>'}
+function xpLog(){return(S.xp&&Array.isArray(S.xp.log))?S.xp.log:[]}
+function xpTotal(){var t=0;xpLog().forEach(function(e){t+=e.x});return Math.max(0,t)}
+function xpLevel(t){var L=1;while(50*(L+1)*L<=t)L++;return L}
+function xpInfo(){var t=xpTotal(),L=xpLevel(t),a=50*L*(L-1),b=50*(L+1)*L,td=ymd(new Date()),today=0;
+xpLog().forEach(function(e){if(e.d===td)today+=e.x});
+return{total:t,level:L,title:LVN[Math.min(L,LVN.length)-1],base:a,next:b,cur:t-a,need:b-a,pct:Math.max(0,Math.min(100,Math.round((t-a)/(b-a)*100))),today:today}}
+function xpTaskVal(t){var e=t.est||60,p=t.pr||2;return 10+Math.min(20,Math.round(e/10))+(p===3?6:p===2?3:0)}
+function xpQuizAns(q){var tot=q.total||0;return q.ans==null?tot:q.ans}
+function xpQuizValid(q){var tot=q.total||0;return tot>0&&xpQuizAns(q)>=Math.ceil(tot/2)}
+function xpQuizVal(q){var tot=q.total||0,sc=q.score||0;if(tot<1||!xpQuizValid(q))return 0;var x=sc*4;if(tot>=5&&xpQuizAns(q)>=tot&&sc/tot>=0.5){x+=20;if(sc/tot>=0.8)x+=30}return x}
+function xpDiffDays(a,b){return Math.round((new Date(b+'T00:00:00')-new Date(a+'T00:00:00'))/864e5)}
+function xpDays(){var d={};xpLog().forEach(function(e){if((e.t==='t'||(e.t==='q'&&e.v!==0))&&e.d)d[e.d]=1});
+var per={};S.sessions.forEach(function(s){if(s.date)per[s.date]=(per[s.date]||0)+(s.min||0)});
+Object.keys(per).forEach(function(k){if(per[k]>=10)d[k]=1});return d}
+function xpStreak(){var days=xpDays(),keys=Object.keys(days).sort(),best=0,run=0,prev=null;
+keys.forEach(function(k){run=(prev&&xpDiffDays(prev,k)===1)?run+1:1;if(run>best)best=run;prev=k});
+var cur=0,dt=new Date();if(!days[ymd(dt)])dt.setDate(dt.getDate()-1);
+while(days[ymd(dt)]){cur++;dt.setDate(dt.getDate()-1)}
+return{cur:cur,best:Math.max(best,cur),days:days}}
+function xpMetrics(){var m={questsDone:0,allDays:0,tasks:0,quizzes:0,good:0,perfect:0,focus:0,maxses:0,goal:0,examprep:0,streak:0};
+xpLog().forEach(function(e){if(e.t==='z'){if(/:all$/.test(e.k))m.allDays++;else m.questsDone++}if(e.t==='t')m.tasks++;if(e.t==='q'&&e.v!==0){m.quizzes++;if(e.n>=5&&e.r>=80)m.good++;if(e.n>=5&&e.r===100)m.perfect++}});
+var per={};S.sessions.forEach(function(s){var x=s.min||0;m.focus+=x;if(x>m.maxses)m.maxses=x;if(s.date)per[s.date]=(per[s.date]||0)+x});
+var gm=S.daily||120;Object.keys(per).forEach(function(k){if(per[k]>=gm)m.goal++});
+S.exams.forEach(function(e){if(!e.sid||diff(e.date)>=0)return;var tot=0;S.sessions.forEach(function(s){if(s.sid===e.sid&&s.date){var dd=xpDiffDays(s.date,e.date);if(dd>=0&&dd<=21)tot+=s.min||0}});if(tot>=300)m.examprep++});
+m.streak=xpStreak().best;return m}
+function xpSync(silent){
+var fresh=false;if(!S.xp||!Array.isArray(S.xp.log)){S.xp={v:1,log:[],ach:{}};fresh=true}if(!S.xp.ach)S.xp.ach={};
+silent=silent||fresh;var X=S.xp,before=xpTotal(),l0=xpLevel(before),added=0,removed=0,newAch=[];
+var have={};X.log.forEach(function(e){have[e.k]=1});
+var tmap={};S.tasks.forEach(function(t){tmap[t.id]=t});
+// 1) belgisi olib tashlangan vazifaning XP si qaytariladi (o'chirib yuborilgan, lekin bajarilgan vazifa XP sini saqlaydi)
+X.log=X.log.filter(function(e){if(e.t==='t'){var t=tmap[e.k.slice(5)];if(t&&!t.done){removed+=e.x;delete have[e.k];return false}}return true});
+var dsum={};function addDay(t,d,x){var k=t+'|'+(d||'-');dsum[k]=(dsum[k]||0)+x}
+X.log.forEach(function(e){addDay(e.t,e.d,e.x)});
+function cap(t,d,x){var c=d?XPCAP[t]:400,cur=dsum[t+'|'+(d||'-')]||0;return Math.max(0,Math.min(x,c-cur))}
+function put(e){X.log.push(e);have[e.k]=1;addDay(e.t,e.d,e.x);added+=e.x}
+// 2) bajarilgan vazifalar
+S.tasks.forEach(function(t){if(!t.done||!t.id||String(t.title||'').trim().length<2)return;var k='task:'+t.id;if(have[k])return;
+put({k:k,t:'t',x:cap('t',t.doneAt||'',xpTaskVal(t)),d:t.doneAt||'',l:String(t.title).slice(0,30)})});
+// 3) taymerda haqiqatan o'tgan vaqt (1 daqiqa = 1 XP)
+S.sessions.forEach(function(s,i){var k='ses:'+i;if(have[k])return;
+put({k:k,t:'s',x:cap('s',s.date||'',Math.max(0,Math.round(s.min||0))),d:s.date||'',l:fmt(s.min||0)+' fokus'})});
+// 4) yechilgan testlar (qayta yechish kamroq XP beradi)
+(S.quizHist||[]).forEach(function(q){if(!q.id)q.id=uid();var k='quiz:'+q.id;if(have[k])return;
+var b=xpQuizVal(q);if(q.att>1)b=Math.floor(b*0.3);var qv=xpQuizValid(q)?1:0;
+put({k:k,t:'q',x:cap('q',q.date||'',b),d:q.date||'',l:String(q.title||'Test').slice(0,24)+' ('+(q.score||0)+'/'+(q.total||0)+')',r:q.total?Math.round((q.score||0)/q.total*100):0,n:q.total||0,v:qv,a:q.att||1})});
+// 4b) kunlik missiyalar: bugungi ro'yxat saqlanadi, progress haqiqiy ishlardan hisoblanadi
+var td=ymd(new Date()),newQ=[],allNew=false,qchg=false;
+if(!S.qlog)S.qlog={};
+if(!S.quests||S.quests.d!==td){
+if(S.quests&&S.quests.list&&S.quests.d){var pd=S.quests.d,pc=0;S.quests.list.forEach(function(q){if(have['quest:'+pd+':'+q.id])pc++});S.qlog[pd]={n:S.quests.list.length,c:pc,all:!!have['quest:'+pd+':all']}}
+S.quests={d:td,list:qsGen(td)};qchg=true;
+var qk=Object.keys(S.qlog).sort();while(qk.length>30)delete S.qlog[qk.shift()]}
+var Z=S.quests,rm={},allDone=Z.list.length>0;
+Z.list.forEach(function(q){var k='quest:'+Z.d+':'+q.id,done=qsProg(q)>=q.n;if(!done)allDone=false;
+if(done&&!have[k]){put({k:k,t:'z',x:q.x,d:Z.d,l:qsText(q).slice(0,40)});newQ.push(q)}else if(!done&&have[k])rm[k]=1});
+var ka='quest:'+Z.d+':all';
+if(allDone&&!have[ka]){put({k:ka,t:'z',x:50,d:Z.d,l:'Barcha missiyalar bajarildi'});allNew=true}else if(!allDone&&have[ka])rm[ka]=1;
+if(Object.keys(rm).length)X.log=X.log.filter(function(e){if(rm[e.k]){removed+=e.x;delete have[e.k];return false}return true});
+// 5) yutuqlar (bir marta ochiladi, bonus XP beradi)
+var m=xpMetrics();
+ACH.forEach(function(a){if(X.ach[a.id]||(m[a.m]||0)<a.v)return;var d=fresh?'':ymd(new Date());X.ach[a.id]=d||'old';put({k:'ach:'+a.id,t:'a',x:a.xp,d:d,l:a.n});newAch.push(a)});
+var after=xpTotal(),l1=xpLevel(after);
+if(fresh&&added>0)setTimeout(function(){toast('Hozirgacha bajargan ishlaringiz uchun '+after+' XP hisoblandi')},1200);
+if(!silent&&(after!==before||newAch.length||l1>l0)){var p=[];
+if(after>before)p.push('+'+(after-before)+' XP');else if(after<before)p.push((after-before)+' XP');
+newQ.forEach(function(q){p.push('🎯 Missiya: '+qsShort(q))});if(allNew)p.push('🌟 Barcha missiyalar bajarildi!');
+newAch.forEach(function(a){p.push('🏆 Yutuq: '+a.n)});
+if(l1>l0)p.push('🎉 '+l1+'-daraja: '+LVN[Math.min(l1,LVN.length)-1]);
+setTimeout(function(){toast(p.join(' · '))},700)}
+return added>0||removed>0||fresh||qchg}
+function streak(){return xpStreak().cur}
+function meLevel(){var i=xpInfo();return'Daraja '+i.level+' · '+i.total+' XP'}
+function xpBox(){var i=xpInfo(),st=xpStreak();
+return'<button class="xpb" data-a="goProg" aria-label="Yutuqlar sahifasini ochish"><span class="lvb">'+i.level+'</span><span class="xpm"><span class="xpt"><span>'+i.title+'</span><small>'+i.cur+' / '+i.need+' XP</small></span><span class="xbar"><i style="width:'+i.pct+'%"></i></span></span><span class="xps"><b>🔥 '+st.cur+'</b><small>'+(i.today?'bugun +'+i.today+' XP':'kun ketma-ket')+'</small></span></button>'}
 function applyNav(){var m=!!S.navMin;$('.app').classList.toggle('min',m);var b=$('.tgl');if(b){b.setAttribute('aria-expanded',String(!m));b.setAttribute('aria-label',m?'Menyuni ochish':'Menyuni yig‘ish');b.title=m?'Menyuni ochish':'Menyuni yig‘ish'}}
-function render(){
+function render(){try{if(AU.user&&S.quests&&S.quests.d!==ymd(new Date())&&xpSync(true))save()}catch(e){}
 $('#nav').innerHTML='<div class="top"><div class="logo"><img src="/logo-mark.png" alt="" width="32" height="32" onerror="this.remove()"><span class="lt">Study<b>Flow</b></span></div><button class="x tgl" data-a="toggleNav"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h2.5v16H7a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z" fill="currentColor" stroke="none" opacity=".2"/><rect x="3" y="4" width="18" height="16" rx="4"/><path d="M9.5 4v16"/><path class="chev" d="M16 9.5l-2.5 2.5 2.5 2.5"/></svg></button></div><button class="nav qkbtn" data-a="qaOpen" title="Tezkor amallar"><svg class="ni" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="lb">Tezkor amallar</span><kbd>'+KEY+'</kbd></button>'+navGroups()+meHtml();
 $('#view').innerHTML=V[tab]();
 if(tab==='timer'){var s=$('#tm-sub');if(s)s.value=T.sid;paint()}if(tab==='compiler')cmInit();applyNav()}
+if(AU.user){try{if(xpSync(true))save()}catch(e){console.error('xp',e)}}
 render();
 </script>
 </body>
